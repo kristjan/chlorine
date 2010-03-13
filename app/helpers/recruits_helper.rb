@@ -7,9 +7,8 @@ module RecruitsHelper
     "Move on to " + activity.friendly_name
   end
 
-  def employee_option_tags
-    Employee.all.map do |e|
-      "<option value='#{e.id}'>#{e.name}</option>"
-    end
+  def employees_for_select_options(employees=nil)
+    employees ||= Employee.all
+    employees.map{|e| [e.name, e.id]}
   end
 end

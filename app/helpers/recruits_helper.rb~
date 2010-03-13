@@ -6,4 +6,9 @@ module RecruitsHelper
   def advance_text(activity)
     "Move on to " + activity.friendly_name
   end
+
+  def employees_for_select_options(employees=nil)
+    employees ||= Employee.all
+    employees.map{|e| [e.id, e.name]}
+  end
 end
