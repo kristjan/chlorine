@@ -11,6 +11,5 @@ class Recruit < ActiveRecord::Base
   end
 
   after_create do |recruit|
-    Activity.received!(recruit)
   end
 end

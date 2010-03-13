@@ -1,0 +1,21 @@
+<h1>Feedback</h1>
+<ul>
+  <% @recruit.feedbacks.each do |feedback| %>
+    <%= feedback.body %> : <%= feedback.score %>
+  <% end %>
+</ul>
+
+<% form_for(Feedback.new) do |f| %>
+  <%= f.hidden_field :recruit_id, :value => @recruit.id %>
+  <%= f.hidden_field :activity_id, :value => @recruit.current_activity.id %>
+  <%= f.hidden_field :employee_id, :value => 1 %>
+
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+    <%= f.label :score %><br />
+    <%= f.text_field :score %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

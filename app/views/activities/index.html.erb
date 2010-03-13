@@ -1,0 +1,28 @@
+<h1>Listing activities</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Recruit</th>
+    <th>Scheduled for</th>
+    <th>Completed at</th>
+    <th>Creator</th>
+  </tr>
+
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%=h activity.type %></td>
+    <td><%=h activity.recruit_id %></td>
+    <td><%=h activity.scheduled_for %></td>
+    <td><%=h activity.completed_at %></td>
+    <td><%=h activity.creator_id %></td>
+    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+    <td><%= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New activity', new_activity_path %>
