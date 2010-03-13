@@ -42,6 +42,13 @@ class Activity < ActiveRecord::Base
     self.class.friendly_name
   end
 
+  def self.underscored_name
+    self.name.underscore.gsub('/','_')
+  end
+  def underscored_name
+    self.class.underscored_name
+  end
+
   def self.name_for_params
     self.name.underscore
   end
@@ -51,6 +58,28 @@ class Activity < ActiveRecord::Base
 
   def self.from_param(param)
     subclasses.select {|klass| klass.name_for_params == param}.first
+  end
+
+  def assign!(employee)
+    employee = Employee.find(employee) if employee.is_a?(Fixnum)
+    employees << employee
+  end
+
+  def unassign!(employee)
+    employee = Employee.find(employee) if employee.is_a?(Fixnum)
+    employees.delete employee
+  end
+
+  def employee_ids
+    employees.map(&:id)
+  end
+
+  def employee_ids=(ids)
+    ids = ids.map(&:to_i)
+    to_create = ids - employee_ids
+    to_delete = employee_ids - ids
+    to_create.each {|id| assign!(id)   }
+    to_delete.each {|id| unassign!(id) }
   end
 
   def finish!

@@ -5967,3 +5967,1270 @@ Rendered recruits/_activity (1.8ms)
   [4;36;1mFeedback Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
 Rendered recruits/_feedback (11.0ms)
 Completed in 58ms (View: 38, DB: 14) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:34:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.5ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+Rendered recruits/_schedule_form (73.6ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (77.0ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (13.3ms)
+Completed in 120ms (View: 99, DB: 14) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 01:34:48) [PUT]
+  Parameters: {"commit"=>"Schedule/Assign Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "employees"=>["1"], "activity_received"=>{"scheduled_for"=>""}}
+  [4;35;1mActivity Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity Load (0.5ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;35;1mActivity::Received Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 26ms (DB: 9) | 302 Found [http://localhost/activities/1/schedule]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:34:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (3.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (3.6ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+Rendered recruits/_schedule_form (16.0ms)
+Rendered recruits/_reject_form (1.1ms)
+Rendered recruits/_decline_form (1.0ms)
+Rendered recruits/_actions (19.0ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (70.7ms)
+Completed in 120ms (View: 98, DB: 16) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mActivity Load (0.2ms)[0m   [0;1mSELECT * FROM `activities` ORDER BY activities.id DESC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Rejected Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 25)) [0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (3.7ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mSQL (29.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 01:43:13) [PUT]
+  Parameters: {"commit"=>"Schedule/Assign Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>"12:30"}}
+  [4;36;1mActivity Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity Load (0.5ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mActivity::Received Update (0.3ms)[0m   [0;1mUPDATE `activities` SET `updated_at` = '2010-03-13 07:43:13', `scheduled_for` = '2010-03-13 12:30:00' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.5ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 27ms (DB: 9) | 302 Found [http://localhost/activities/1/schedule]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:43:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.2ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+Rendered recruits/_next_activity_form (5.6ms)
+Rendered recruits/_reject_form (1.4ms)
+Rendered recruits/_decline_form (1.9ms)
+Rendered recruits/_actions (15.0ms)
+  [4;35;1mActivity Load (0.6ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.5ms)
+  [4;36;1mFeedback Load (0.4ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (12.3ms)
+Completed in 57ms (View: 38, DB: 13) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:58:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+Rendered recruits/_next_activity_form (2.2ms)
+Rendered recruits/_reject_form (2.3ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (6.5ms)
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.3ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.3ms)
+Completed in 108ms (View: 91, DB: 12) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:58:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.5ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+Rendered recruits/_next_activity_form (2.2ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.2ms)
+Rendered recruits/_actions (5.5ms)
+  [4;35;1mActivity Load (0.9ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.9ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.2ms)
+Completed in 45ms (View: 27, DB: 12) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mActivity Load (1.4ms)[0m   [0mSELECT * FROM `activities` ORDER BY activities.id DESC LIMIT 1[0m
+  [4;36;1mRecruit Load (0.5ms)[0m   [0;1mSELECT * FROM `recruits` LIMIT 1[0m
+  [4;35;1mRecruit Columns (3.7ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity::Received Columns (3.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity::Received Update (0.4ms)[0m   [0mUPDATE `activities` SET `updated_at` = '2010-03-13 07:59:26', `scheduled_for` = NULL WHERE `id` = 1[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:59:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.8ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+ERROR: compiling _run_erb_app47views47recruits47_schedule_form46html46erb_locals_activity_object_schedule_form RAISED compile error
+/Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+                           activity.employees.collect,
+                                   ^
+/Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:7: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...                  :multiple => true ).to_s); @output_buffer....
+                              ^
+Function body:           def _run_erb_app47views47recruits47_schedule_form46html46erb_locals_activity_object_schedule_form(local_assigns)
+            old_output_buffer = output_buffer;schedule_form = local_assigns[:schedule_form];object = local_assigns[:object];activity = local_assigns[:activity];;@output_buffer = '';  __in_erb_template=true ;  form_for(activity,
+            :url => schedule_activity_path(activity),
+            :method => :put) do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( select_tag :assigned_employee_ids,
+        options_for_select(Employee.all.collect
+                           activity.employees.collect,
+                           :multiple => true ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.text_field :scheduled_for ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.submit schedule_text(activity)).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:14:in `compile!'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+/Users/kristjan/src/recruitr/app/views/recruits/_actions.html.erb:8:in `_run_erb_app47views47recruits47_actions46html46erb_locals_actions_object'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+/Users/kristjan/src/recruitr/app/views/recruits/show.html.erb:11:in `_run_erb_app47views47recruits47show46html46erb'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render_without_benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `custom'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `respond'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/kristjan/src/recruitr/app/controllers/recruits_controller.rb:21:in `show'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting ')'
+                           activity.employees.collect,
+                                   ^
+/Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:7: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+...                  :multiple => true ).to_s); @output_buffer....
+                              ^) on line #6 of app/views/recruits/_schedule_form.html.erb:
+3:             :method => :put) do |f| %>
+4:   <%= select_tag :assigned_employee_ids,
+5:         options_for_select(Employee.all.collect
+6:                            activity.employees.collect,
+7:                            :multiple => true %>
+8:   <%= f.text_field :scheduled_for %>
+9:   <%= f.submit schedule_text(activity)%>
+
+    app/views/recruits/_schedule_form.html.erb:14:in `compile!'
+    app/views/recruits/_actions.html.erb:8
+    app/views/recruits/show.html.erb:11
+    app/controllers/recruits_controller.rb:21:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (52.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:59:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.3ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+ERROR: compiling _run_erb_app47views47recruits47_schedule_form46html46erb_locals_activity_object_schedule_form RAISED compile error
+/Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:7: syntax error, unexpected ';', expecting ')'
+...    :multiple => true ).to_s); @output_buffer.concat "\n  "
+                              ^
+Function body:           def _run_erb_app47views47recruits47_schedule_form46html46erb_locals_activity_object_schedule_form(local_assigns)
+            old_output_buffer = output_buffer;schedule_form = local_assigns[:schedule_form];object = local_assigns[:object];activity = local_assigns[:activity];;@output_buffer = '';  __in_erb_template=true ;  form_for(activity,
+            :url => schedule_activity_path(activity),
+            :method => :put) do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( select_tag :assigned_employee_ids,
+        options_for_select(Employee.all.collect,
+                           activity.employees.collect,
+                           :multiple => true ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.text_field :scheduled_for ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.submit schedule_text(activity)).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:14:in `compile!'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+/Users/kristjan/src/recruitr/app/views/recruits/_actions.html.erb:8:in `_run_erb_app47views47recruits47_actions46html46erb_locals_actions_object'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+/Users/kristjan/src/recruitr/app/views/recruits/show.html.erb:11:in `_run_erb_app47views47recruits47show46html46erb'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render_without_benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `custom'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `respond'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/kristjan/src/recruitr/app/controllers/recruits_controller.rb:21:in `show'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/kristjan/src/recruitr/app/views/recruits/_schedule_form.html.erb:7: syntax error, unexpected ';', expecting ')'
+...    :multiple => true ).to_s); @output_buffer.concat "\n  "
+                              ^) on line #7 of app/views/recruits/_schedule_form.html.erb:
+4:   <%= select_tag :assigned_employee_ids,
+5:         options_for_select(Employee.all.collect,
+6:                            activity.employees.collect,
+7:                            :multiple => true %>
+8:   <%= f.text_field :scheduled_for %>
+9:   <%= f.submit schedule_text(activity)%>
+10: <% end %>
+
+    app/views/recruits/_schedule_form.html.erb:14:in `compile!'
+    app/views/recruits/_actions.html.erb:8
+    app/views/recruits/show.html.erb:11
+    app/controllers/recruits_controller.rb:21:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:59:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.4ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Load (0.4ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;35;1mEmployee Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+Rendered recruits/_schedule_form (76.9ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (83.6ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.2ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (12.3ms)
+Completed in 124ms (View: 103, DB: 15) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 01:59:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (1.0ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (18.6ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (2.0ms)
+Rendered recruits/_actions (25.9ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.2ms)
+  [4;36;1mFeedback Load (0.4ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (14.8ms)
+Completed in 69ms (View: 48, DB: 15) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:02:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.5ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (17.1ms)
+Rendered recruits/_reject_form (2.5ms)
+Rendered recruits/_decline_form (1.2ms)
+Rendered recruits/_actions (24.6ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.0ms)
+Completed in 126ms (View: 41, DB: 15) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:02:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.5ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (74.0ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (77.1ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.2ms)
+Completed in 115ms (View: 95, DB: 14) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:05:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.5ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+
+ActionView::TemplateError (undefined method `select_tag' for #<ActionView::Helpers::FormBuilder:0x1044f7388>) on line #5 of app/views/recruits/_schedule_form.html.erb:
+2:             :url => schedule_activity_path(activity),
+3:             :method => :put) do |f| %>
+4:   <% fields_for :assigned_employee_ids do |ef| %>
+5:     <%= ef.select_tag :assigned_employee_ids,
+6:              options_for_select(
+7:                employees_for_select_options,
+8:                employees_for_select_options(activity.employees)),
+
+    app/views/recruits/_schedule_form.html.erb:5
+    app/views/recruits/_schedule_form.html.erb:4
+    app/views/recruits/_schedule_form.html.erb:1
+    app/views/recruits/_actions.html.erb:8
+    app/views/recruits/show.html.erb:11
+    app/controllers/recruits_controller.rb:21:in `show'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (117.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:05:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.4ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.6ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (82.9ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (88.9ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.3ms)
+Completed in 127ms (View: 107, DB: 14) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:05:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.6ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (21.8ms)
+Rendered recruits/_reject_form (1.7ms)
+Rendered recruits/_decline_form (1.8ms)
+Rendered recruits/_actions (29.3ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (10.6ms)
+Completed in 67ms (View: 48, DB: 14) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:05:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (3.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (23.7ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.6ms)
+Rendered recruits/_actions (30.4ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.4ms)
+Completed in 69ms (View: 48, DB: 15) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:06:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.4ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (16.1ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.3ms)
+Rendered recruits/_actions (24.0ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.0ms)
+Completed in 119ms (View: 99, DB: 14) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:07:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.5ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.6ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (17.6ms)
+Rendered recruits/_reject_form (1.5ms)
+Rendered recruits/_decline_form (1.4ms)
+Rendered recruits/_actions (82.1ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.4ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.3ms)
+Completed in 120ms (View: 99, DB: 16) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:07:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (3.6ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (1.3ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.4ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (5.8ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (26.1ms)
+Rendered recruits/_reject_form (1.3ms)
+Rendered recruits/_decline_form (1.3ms)
+Rendered recruits/_actions (33.2ms)
+  [4;35;1mActivity Load (5.1ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (6.1ms)
+  [4;36;1mFeedback Load (0.6ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (14.1ms)
+Completed in 90ms (View: 57, DB: 26) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:12:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.4ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (17.5ms)
+Rendered recruits/_reject_form (1.7ms)
+Rendered recruits/_decline_form (1.3ms)
+Rendered recruits/_actions (24.8ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.2ms)
+  [4;35;1mFeedback Load (0.5ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (12.1ms)
+Completed in 127ms (View: 43, DB: 15) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:13:14) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>"", "assigned_employee_ids"=>["1"]}}
+  [4;35;1mActivity Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity Load (0.5ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;35;1mActivity::Received Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: assigned_employee_ids):
+  app/controllers/activities_controller.rb:85:in `schedule'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (91.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mActivity Load (0.2ms)[0m   [0;1mSELECT * FROM `activities` LIMIT 1[0m
+  [4;35;1mActivity Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mEmployee Columns (4.6ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM `employees` [0m
+  [4;36;1mEmployee Load (1.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM `employees` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmployeeActivity Columns (4.4ms)[0m   [0;1mSHOW FIELDS FROM `employee_activities`[0m
+  [4;35;1mEmployeeActivity Create (1.1ms)[0m   [0mINSERT INTO `employee_activities` (`activity_id`, `employee_id`) VALUES(1, 1)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mActivity::Received Load (1.5ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) AND ( (`activities`.`type` = 'Activity::Received' ) ) [0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mEmployee Load (2.1ms)[0m   [0;1mSELECT * FROM `employees` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmployeeActivity Delete all (0.2ms)[0m   [0;1mDELETE FROM `employee_activities` WHERE (`employee_activities`.`activity_id` = 1 AND `employee_activities`.`employee_id` = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Load (0.8ms)[0m   [0mSELECT * FROM `employees` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmployeeActivity Create (0.3ms)[0m   [0mINSERT INTO `employee_activities` (`activity_id`, `employee_id`) VALUES(1, 1)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` LIMIT 1[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmployeeActivity Delete all (0.3ms)[0m   [0;1mDELETE FROM `employee_activities` WHERE (`employee_activities`.`activity_id` = 1 AND `employee_activities`.`employee_id` = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:22:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.5ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (1.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (4.7ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (22.4ms)
+Rendered recruits/_reject_form (1.2ms)
+Rendered recruits/_decline_form (1.2ms)
+Rendered recruits/_actions (30.6ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.0ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (10.7ms)
+Completed in 71ms (View: 46, DB: 19) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:22:26) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>"", "employee_ids"=>["1"]}}
+  [4;35;1mActivity Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity Load (0.5ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;35;1mActivity::Received Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.4ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` WHERE (`employees`.`id` = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mEmployeeActivity Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `employee_activities`[0m
+  [4;35;1mEmployeeActivity Create (0.2ms)[0m   [0mINSERT INTO `employee_activities` (`activity_id`, `employee_id`) VALUES(1, 1)[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRecruit Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.6ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 110ms (DB: 17) | 302 Found [http://localhost/activities/1/schedule]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:22:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.3ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.5ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (17.1ms)
+Rendered recruits/_reject_form (1.3ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (22.2ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.4ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (12.0ms)
+Completed in 67ms (View: 45, DB: 16) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mRecruit Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.4ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:23:03) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>""}}
+  [4;36;1mActivity Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;36;1mActivity::Received Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRecruit Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.2ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 85ms (DB: 9) | 302 Found [http://localhost/activities/1/schedule]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:23:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.2ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.5ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (6.3ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (1.0ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (18.1ms)
+Rendered recruits/_reject_form (1.3ms)
+Rendered recruits/_decline_form (1.0ms)
+Rendered recruits/_actions (22.3ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.3ms)
+Completed in 66ms (View: 41, DB: 20) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mActivity::Received Load (1.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) AND ( (`activities`.`type` = 'Activity::Received' ) ) [0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:25:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+  [4;36;1mActivity Load (0.7ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (3.8ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mEmployee Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+Rendered recruits/_schedule_form (5.0ms)
+Rendered recruits/_reject_form (1.8ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (13.2ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.8ms)
+Completed in 128ms (View: 27, DB: 18) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:25:14) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>""}}
+  [4;35;1mActivity Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity Load (0.6ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;35;1mActivity::Received Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.2ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 26ms (DB: 9) | 302 Found [http://localhost/activities/1/schedule]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:25:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.2ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+  [4;36;1mActivity Load (0.4ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (4.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (6.7ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mEmployee Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mEmployee Load (1.5ms)[0m   [0mSELECT * FROM `employees` [0m
+Rendered recruits/_schedule_form (4.9ms)
+Rendered recruits/_reject_form (1.1ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (8.0ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.0ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (72.0ms)
+Completed in 128ms (View: 81, DB: 22) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:26:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.4ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (3.6ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (16.1ms)
+Rendered recruits/_reject_form (3.0ms)
+Rendered recruits/_decline_form (1.2ms)
+Rendered recruits/_actions (21.3ms)
+  [4;35;1mActivity Load (0.3ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.5ms)
+Completed in 61ms (View: 39, DB: 16) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:26:51) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>""}}
+  [4;36;1mActivity Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;36;1mActivity::Received Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mEmployee Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` WHERE (`employees`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmployeeActivity Delete all (0.2ms)[0m   [0mDELETE FROM `employee_activities` WHERE (`employee_activities`.`activity_id` = 1 AND `employee_activities`.`employee_id` = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRecruit Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.5ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 102ms (DB: 13) | 302 Found [http://localhost/activities/1/schedule]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:26:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.2ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (4.1ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT * FROM `employees` [0m
+  [4;35;1mEmployee Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mEmployee Load (0.3ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (17.3ms)
+Rendered recruits/_reject_form (1.1ms)
+Rendered recruits/_decline_form (1.1ms)
+Rendered recruits/_actions (20.8ms)
+  [4;35;1mActivity Load (0.8ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.8ms)
+  [4;36;1mFeedback Load (0.3ms)[0m   [0;1mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;35;1mFeedback Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.8ms)
+Completed in 66ms (View: 44, DB: 17) | 200 OK [http://localhost/recruits/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:26:54) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>"", "employee_ids"=>["1"]}}
+  [4;36;1mActivity Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity Load (0.2ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;36;1mActivity::Received Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.4ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;36;1mEmployee Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.2ms)[0m   [0mSELECT * FROM `employees` WHERE (`employees`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEmployeeActivity Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `employee_activities`[0m
+  [4;36;1mEmployeeActivity Create (0.2ms)[0m   [0;1mINSERT INTO `employee_activities` (`activity_id`, `employee_id`) VALUES(1, 1)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mRecruit Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.3ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 105ms (DB: 15) | 302 Found [http://localhost/activities/1/schedule]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:26:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRecruit Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `recruits`[0m
+  [4;35;1mRecruit Load (0.2ms)[0m   [0mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;36;1mActivity Load (2.0ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;35;1mActivity Columns (3.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity::Received Columns (3.9ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT * FROM `employees` [0m
+  [4;36;1mEmployee Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `employees`[0m
+  [4;35;1mEmployee Load (0.3ms)[0m   [0mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+Rendered recruits/_schedule_form (17.6ms)
+Rendered recruits/_reject_form (1.3ms)
+Rendered recruits/_decline_form (1.9ms)
+Rendered recruits/_actions (21.7ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.1ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (11.6ms)
+Completed in 64ms (View: 41, DB: 18) | 200 OK [http://localhost/recruits/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActivitiesController#schedule (for 127.0.0.1 at 2010-03-13 02:27:33) [PUT]
+  Parameters: {"commit"=>"Schedule Received", "authenticity_token"=>"tbYrw6yDNk4aIrwPhFwhV4A0o5HXJiy+0B/CvMugJmA=", "id"=>"1", "activity_received"=>{"scheduled_for"=>"12:30", "employee_ids"=>["1"]}}
+  [4;35;1mActivity Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.`id` = 1) [0m
+  [4;35;1mActivity::Received Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+  [4;36;1mEmployee Load (0.7ms)[0m   [0;1mSELECT `employees`.* FROM `employees` INNER JOIN `employee_activities` ON `employees`.id = `employee_activities`.employee_id WHERE ((`employee_activities`.activity_id = 1)) [0m
+  [4;35;1mEmployee Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `employees`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mActivity::Received Update (0.3ms)[0m   [0mUPDATE `activities` SET `updated_at` = '2010-03-13 08:27:33', `scheduled_for` = '2010-03-13 12:30:00' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mRecruit Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.5ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Redirected to http://localhost:3000/recruits/1
+Completed in 99ms (DB: 13) | 302 Found [http://localhost/activities/1/schedule]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RecruitsController#show (for 127.0.0.1 at 2010-03-13 02:27:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mRecruit Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `recruits`[0m
+  [4;36;1mRecruit Load (0.9ms)[0m   [0;1mSELECT * FROM `recruits` WHERE (`recruits`.`id` = 1) [0m
+Rendering template within layouts/recruits
+Rendering recruits/show
+  [4;35;1mActivity Load (0.4ms)[0m   [0mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at DESC, created_at ASC LIMIT 1[0m
+  [4;36;1mActivity Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `activities`[0m
+  [4;35;1mActivity::Received Columns (3.4ms)[0m   [0mSHOW FIELDS FROM `activities`[0m
+Rendered recruits/_next_activity_form (4.8ms)
+Rendered recruits/_reject_form (1.1ms)
+Rendered recruits/_decline_form (1.0ms)
+Rendered recruits/_actions (7.8ms)
+  [4;36;1mActivity Load (0.3ms)[0m   [0;1mSELECT * FROM `activities` WHERE (`activities`.recruit_id = 1) ORDER BY created_at desc[0m
+Rendered recruits/_activity (1.5ms)
+  [4;35;1mFeedback Load (0.3ms)[0m   [0mSELECT * FROM `feedbacks` WHERE (`feedbacks`.recruit_id = 1) [0m
+  [4;36;1mFeedback Columns (3.9ms)[0m   [0;1mSHOW FIELDS FROM `feedbacks`[0m
+Rendered recruits/_feedback (12.5ms)
+Completed in 53ms (View: 32, DB: 15) | 200 OK [http://localhost/recruits/1]

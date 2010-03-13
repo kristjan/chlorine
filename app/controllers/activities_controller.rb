@@ -82,6 +82,7 @@ class ActivitiesController < ApplicationController
 
   def schedule
     activity_key = params.keys.detect{|k| k =~ /^activity/}
+    params[activity_key]['employee_ids'] ||= []
     @activity.update_attributes!(params[activity_key])
     redirect_to @activity.recruit
   end
