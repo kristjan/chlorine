@@ -1,4 +1,0 @@
-class Feedback < ActiveRecord::Base
-  has_one :activity
-  has_one :recruit
-end
