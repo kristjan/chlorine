@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: MyString
+  recruit_id: 1
+  scheduled_for: 2010-03-12 18:21:43
+  completed_at: 2010-03-12 18:21:43
+  creator_id: 1
+
+two:
+  type: MyString
+  recruit_id: 1
+  scheduled_for: 2010-03-12 18:21:43
+  completed_at: 2010-03-12 18:21:43
+  creator_id: 1

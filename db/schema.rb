@@ -9,12 +9,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100313012105) do
+ActiveRecord::Schema.define(:version => 20100313023549) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "type"
+    t.integer  "recruit_id"
+    t.datetime "scheduled_for"
+    t.datetime "completed_at"
+    t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employee_activities", :force => true do |t|
+    t.integer "activity_id"
+    t.integer "employee_id"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "facebook_uid"
+    t.string   "facebook_session"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "employee_id"
+    t.integer  "recruit_id"
+    t.integer  "activity_id"
+    t.text     "body"
+    t.float    "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "recruits", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "phone"
+    t.string   "referrer"
+    t.text     "how_found"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

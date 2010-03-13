@@ -1,0 +1,5 @@
+<ul>
+  <% @recruit.activities.each do |activity| %>
+    <li><%= activity.type %> - <%= activity.created_at %></li>
+  <% end %>
+</ul>

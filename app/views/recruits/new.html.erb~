@@ -16,14 +16,6 @@
     <%= f.text_field :phone %>
   </p>
   <p>
-    <%= f.label :referrer %><br />
-    <%= f.text_field :referrer %>
-  </p>
-  <p>
-    <%= f.label :how_found %><br />
-    <%= f.text_area :how_found %>
-  </p>
-  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

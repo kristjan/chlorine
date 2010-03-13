@@ -1,0 +1,28 @@
+<p>
+  <b>Type:</b>
+  <%=h @activity.type %>
+</p>
+
+<p>
+  <b>Recruit:</b>
+  <%=h @activity.recruit_id %>
+</p>
+
+<p>
+  <b>Scheduled for:</b>
+  <%=h @activity.scheduled_for %>
+</p>
+
+<p>
+  <b>Completed at:</b>
+  <%=h @activity.completed_at %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%=h @activity.creator_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

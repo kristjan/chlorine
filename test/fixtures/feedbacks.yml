@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  employee_id: 1
+  recruit_id: 1
+  activity_id: 1
+  body: MyText
+  score: 1.5
+
+two:
+  employee_id: 1
+  recruit_id: 1
+  activity_id: 1
+  body: MyText
+  score: 1.5

@@ -4,7 +4,7 @@ class CreateRecruits < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :phone
-      t.string :referrer
+      t.string :reference
       t.text   :how_found
 
       t.timestamps

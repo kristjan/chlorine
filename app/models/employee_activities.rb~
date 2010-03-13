@@ -1,0 +1,2 @@
+class EmployeeActivities < ActiveRecord::Base
+end

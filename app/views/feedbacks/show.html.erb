@@ -1,0 +1,28 @@
+<p>
+  <b>Employe:</b>
+  <%=h @feedback.employee_id %>
+</p>
+
+<p>
+  <b>Recruit:</b>
+  <%=h @feedback.recruit_id %>
+</p>
+
+<p>
+  <b>Activity:</b>
+  <%=h @feedback.activity_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @feedback.body %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%=h @feedback.score %>
+</p>
+
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>
