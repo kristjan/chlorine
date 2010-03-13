@@ -1,4 +1,12 @@
-<ul>
+<table>
+  <tr>
+    <% ['', 'Scheduled For', 'Completed At'].each do |header| %>
+      <th><%= header %></th>
+    <% end %>
+  </tr>
   <% @recruit.activities.each do |activity| %>
-    <li><%= activity.type %> - <%= activity.created_at %></li>
+    <tr>
+      <td><%= activity.friendly_name %></td>
+      <td><%= activity.scheduled_for || "Pending" %></td>
   <% end %>
+<table>

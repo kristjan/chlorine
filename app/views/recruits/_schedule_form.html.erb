@@ -1,0 +1,7 @@
+<% form_for(activity,
+            :url => schedule_activity_path(activity),
+            :method => :put) do |f| %>
+  <%= select_tag :employees, employee_option_tags, :multiple => true %>
+  <%= f.text_field :scheduled_for %>
+  <%= f.submit schedule_text(activity)%>
+<% end %>

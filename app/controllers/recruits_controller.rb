@@ -1,4 +1,9 @@
 class RecruitsController < ApplicationController
+  before_filter :set_recruit,
+    :except => [:index, :new, :create, :destroy]
+  before_filter :finish_current_activity,
+    :only => [:advance, :reject, :decline]
+
   # GET /recruits
   # GET /recruits.xml
   def index
@@ -13,8 +18,6 @@ class RecruitsController < ApplicationController
   # GET /recruits/1
   # GET /recruits/1.xml
   def show
-    @recruit = Recruit.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @recruit }
@@ -34,7 +37,6 @@ class RecruitsController < ApplicationController
 
   # GET /recruits/1/edit
   def edit
-    @recruit = Recruit.find(params[:id])
   end
 
   # POST /recruits
@@ -57,8 +59,6 @@ class RecruitsController < ApplicationController
   # PUT /recruits/1
   # PUT /recruits/1.xml
   def update
-    @recruit = Recruit.find(params[:id])
-
     respond_to do |format|
       if @recruit.update_attributes(params[:recruit])
         flash[:notice] = 'Recruit was successfully updated.'
@@ -74,7 +74,6 @@ class RecruitsController < ApplicationController
   # DELETE /recruits/1
   # DELETE /recruits/1.xml
   def destroy
-    @recruit = Recruit.find(params[:id])
     @recruit.destroy
 
     respond_to do |format|
@@ -82,4 +81,35 @@ class RecruitsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def advance
+    activity = Activity.from_param(params[:activity])
+    activity.create!(:recruit => @recruit)
+    redirect_to @recruit
+  end
+
+  def reject
+    Activity::Rejected.create!(
+      :recruit => @recruit,
+      :completed_at => Time.now)
+    redirect_to @recruit
+  end
+
+  def decline
+    Activity::Declined.create!(
+      :recruit => @recruit,
+      :completed_at => Time.now)
+    redirect_to @recruit
+  end
+
+private
+
+  def set_recruit
+    @recruit = Recruit.find(params[:id])
+  end
+
+  def finish_current_activity
+    @recruit.current_activity.finish!
+  end
+
 end

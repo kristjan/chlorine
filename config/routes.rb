@@ -1,9 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :activities
+  map.resources :activities,
+    :member => {
+      :schedule => :put,
+    }
 
   map.resources :feedbacks
 
-  map.resources :recruits
+  map.resources :recruits,
+    :member => {
+      :advance  => :put,
+      :reject   => :put,
+      :decline  => :put,
+    }
+
   map.root :controller => :recruits
 
   # The priority is based upon order of creation: first created -> highest priority.

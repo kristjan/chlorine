@@ -1,0 +1,13 @@
+<div id="actions">
+  <% activity = @recruit.current_activity %>
+  <% if activity && !activity.terminal? %>
+    <% if activity.scheduled? %>
+      <%= render :partial => 'next_activity_form' %>
+    <% else %>
+      <%= render :partial => 'schedule_form',
+                 :locals => {:activity => activity} %>
+    <% end %>
+    <%= render :partial => 'reject_form' %>
+    <%= render :partial => 'decline_form' %>
+  <% end %>
+</div>
