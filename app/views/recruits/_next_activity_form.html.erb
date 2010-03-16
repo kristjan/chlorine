@@ -1,6 +1,6 @@
 <% next_activity = @recruit.next_activity %>
 <% form_tag(
      advance_recruit_path(:activity => next_activity.name_for_params),
-     :method => :put) do %>
+                          :method => :put) do %>
   <%= submit_tag advance_text(next_activity) %>
 <% end %>
