@@ -28,6 +28,8 @@ class Activity < ActiveRecord::Base
   ]
 
   TERMINAL_ACTIVITIES = [Hired, Rejected, Declined]
+  SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,
+                            CodingSession, TalkToJoe]
 
   def self.next(activity)
     return nil if activity.terminal?
@@ -88,6 +90,10 @@ class Activity < ActiveRecord::Base
 
   def scheduled?
     !scheduled_for.nil?
+  end
+
+  def needs_scheduling?
+    SCHEDULABLE_ACTIVITIES.include?(self.class)
   end
 
   def terminal?

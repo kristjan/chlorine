@@ -18,3 +18,16 @@
 #documents ul {
   list-style-image: url("/images/paperclip.gif");
 }
+
+#actions {
+  float: left;
+  margin: 20px;
+}
+
+#actions form {
+  margin: 10px 0px;
+}
+
+#actions .small_form {
+  display: inline-block;
+}

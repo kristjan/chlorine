@@ -9,6 +9,6 @@
                activity.employees.map(&:id)),
              :multiple => true %>
   <% end %>
-  <%= f.text_field :scheduled_for %>
+  <%= f.text_field :scheduled_for %><br />
   <%= f.submit schedule_text(activity)%>
 <% end %>
