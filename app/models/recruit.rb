@@ -1,6 +1,7 @@
 class Recruit < ActiveRecord::Base
   has_many :feedbacks
   has_many :activities, :order => 'created_at desc'
+  has_many :documents
 
   def status
     if current_activity.terminal?

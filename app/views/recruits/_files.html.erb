@@ -1,0 +1,12 @@
+<div id="documents">
+  <ul>
+    <% @recruit.documents.each do |doc| %>
+      <li><%= link_to doc.filename, doc %></li>
+    <% end %>
+  </ul>
+  <% form_for(:document, :url => documents_path, :html => {:multipart => true}) do |f| %>
+    <%= f.hidden_field :recruit_id, :value => @recruit.id %>
+    <%= f.file_field :uploaded_data %>
+    <%= f.submit "Upload" %>
+  <% end %>
+</div>

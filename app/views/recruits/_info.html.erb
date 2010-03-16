@@ -1,0 +1,12 @@
+<div id="info">
+  <h1><%=h @recruit.name %></h1>
+  <h2><%= @recruit.status %></h2>
+  <p>
+    <%= auto_link @recruit.email %><br />
+    <%=h @recruit.phone %><br />
+  </p>
+  <p>
+    <b>Referrer:</b> <%=h @recruit.referrer %><br />
+    <b>How we found them:</b> <%=h @recruit.how_found %><br />
+  </p>
+</div>
