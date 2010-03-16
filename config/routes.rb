@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
       :schedule => :put,
     }
 
+  map.resources :documents
+
   map.resources :feedbacks
 
   map.resources :recruits,

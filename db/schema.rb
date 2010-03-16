@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100313023549) do
+ActiveRecord::Schema.define(:version => 20100314192156) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -17,6 +17,22 @@ ActiveRecord::Schema.define(:version => 20100313023549) do
     t.datetime "scheduled_for"
     t.datetime "completed_at"
     t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "db_files", :force => true do |t|
+    t.binary   "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", :force => true do |t|
+    t.string   "filename"
+    t.integer  "size"
+    t.string   "content_type"
+    t.integer  "recruit_id"
+    t.integer  "db_file_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
