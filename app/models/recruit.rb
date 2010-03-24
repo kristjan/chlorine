@@ -1,6 +1,6 @@
 class Recruit < ActiveRecord::Base
   has_many :feedbacks
-  has_many :activities, :order => 'created_at desc'
+  has_many :activities, :order => 'created_at'
   has_many :documents
 
   def status

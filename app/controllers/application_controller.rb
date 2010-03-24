@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  def current_user
+    params[:uid].to_i > 0 ? Employee.find(params[:uid]) : Employee.first
+  end
+  helper_method :current_user
 end
