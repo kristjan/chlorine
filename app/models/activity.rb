@@ -2,6 +2,7 @@ class Activity < ActiveRecord::Base
   belongs_to :recruit
   has_many :employee_activities
   has_many :employees, :through => :employee_activities
+  has_many :feedbacks
 
   class Received          < Activity; end
   class PhoneIntro        < Activity; end
@@ -27,9 +28,10 @@ class Activity < ActiveRecord::Base
     Hired,
   ]
 
-  TERMINAL_ACTIVITIES = [Hired, Rejected, Declined]
+  TERMINAL_ACTIVITIES    = [Hired, Rejected, Declined]
   SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,
                             CodingSession, TalkToJoe]
+  FEEDBACK_ACTIVITIES    = [PhoneScreen, WhiteboardSession, CodingSession, ReferenceCheck]
 
   def self.next(activity)
     return nil if activity.terminal?
@@ -94,6 +96,14 @@ class Activity < ActiveRecord::Base
 
   def needs_scheduling?
     SCHEDULABLE_ACTIVITIES.include?(self.class)
+  end
+
+  def gets_feedback?
+    FEEDBACK_ACTIVITIES.include?(self.class)
+  end
+
+  def initial_feedback_submitted?
+    feedbacks.any? && employees.map(&:id) == feedbacks.map(&:employee_id).uniq
   end
 
   def terminal?
