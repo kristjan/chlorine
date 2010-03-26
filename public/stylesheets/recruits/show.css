@@ -1,18 +1,26 @@
 #info {
-  background-color: #EEF;
   border-bottom: 1px solid #AAC;
+  margin-bottom: 20px;
   padding: 20px;
 }
 
 #info h2 {
-  font-size: 16px;
-  text-transform: uppercase;
+  font-size: 2em;
+  font-variant: small-caps;
+}
+
+#info h3 {
+  font-size: 1em;
+}
+
+#info p {
+  font-weight: normal;
+  margin: 10px 0px;
 }
 
 #documents {
   float: right;
-  margin: 20px;
-  padding: 10px;
+  margin-right: 20px;
 }
 
 #documents ul {
@@ -20,14 +28,70 @@
 }
 
 #actions {
-  float: left;
   margin: 20px;
 }
 
 #actions form {
-  margin: 10px 0px;
+  font-size: 1em;
+}
+
+#actions form label {
+  text-align: right;
+  vertical-align: top;
+  width: 5em;
+}
+
+#actions form p {
+  float: left;
+  margin-right: 10px;
 }
 
 #actions .small_form {
   display: inline-block;
+}
+
+#activity th {
+  font-variant: small-caps;
+}
+
+#activity td {
+  margin: 10px;
+  padding: 5px;
+  width: 15em;
+}
+
+#activity td.activity_name {
+  font-variant: small-caps;
+}
+
+#feedback {
+  margin: 20px 0px;
+}
+
+#feedback .name_and_score {
+  border: 1px solid #AAC;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+#feedback .score {
+  font-size: 2em;
+}
+
+#feedback .name {
+  font-variant: small-caps;
+}
+
+#feedback li {
+  margin: 25px 0px;
+}
+
+#edit {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }

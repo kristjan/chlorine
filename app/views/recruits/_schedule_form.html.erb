@@ -1,14 +1,22 @@
 <% form_for(activity,
             :url => schedule_activity_path(activity),
-            :method => :put) do |f| %>
-  <% fields_for :assigned_employee_ids do |ef| %>
-    <% employees = activity.underscored_name + "[employee_ids]" %>
-    <%= select_tag employees,
-             options_for_select(
-               employees_for_select_options,
-               activity.employees.map(&:id)),
-             :multiple => true %>
-  <% end %>
-  <%= f.text_field :scheduled_for %><br />
-  <%= f.submit schedule_text(activity)%>
+            :method => :put,
+            :html => {:class => "clearfix"}) do |f| %>
+  <p>
+    <%= f.label :assigned_employee_ids, "Assign To" %>
+    <% fields_for :assigned_employee_ids do |ef| %>
+      <% employees = activity.underscored_name + "[employee_ids]" %>
+      <%= select_tag employees,
+               options_for_select(
+                 employees_for_select_options,
+                 activity.employees.map(&:id)),
+               :multiple => true,
+               :size => 3 %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :scheduled_for, "Time" %>
+    <%= f.text_field :scheduled_for %><br />
+    <%= f.submit schedule_text(activity)%>
+  </p>
 <% end %>
