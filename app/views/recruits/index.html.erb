@@ -1,5 +1,4 @@
-<h1>Listing recruits</h1>
-
+<% @page_title = "Recruits" %>
 <table>
   <tr>
     <th>Name</th>
@@ -7,16 +6,14 @@
     <th>Phone</th>
   </tr>
 
-<% @recruits.each do |recruit| %>
-  <tr>
-    <td><%=h recruit.name %></td>
-    <td><%=h recruit.email %></td>
-    <td><%=h recruit.phone %></td>
-    <td><%= link_to 'Show', recruit %></td>
-    <td><%= link_to 'Edit', edit_recruit_path(recruit) %></td>
-    <td><%= link_to 'Destroy', recruit, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @recruits.each do |recruit| %>
+    <tr>
+      <td><%= link_to h(recruit.name), recruit%></td>
+      <td><%= mail_to recruit.email %></td>
+      <td><%=h recruit.phone %></td>
+      <td><%= link_to 'Edit', edit_recruit_path(recruit) %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
