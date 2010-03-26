@@ -22,9 +22,6 @@ body, h1, h2, h3, h4, h5, div, p {
   font-weight: bold;
   text-decoration: none;
 }
-#header a:hover {
-  text-decoration: underline;
-}
 
 #header h1 {
   font-size: 3em;
@@ -45,6 +42,10 @@ body, h1, h2, h3, h4, h5, div, p {
   padding: 5px 0px;
 }
 
+#header_menu a:hover {
+  text-decoration: underline;
+}
+
 #container {
   margin: 0px auto;
   width: 960px;
@@ -52,8 +53,8 @@ body, h1, h2, h3, h4, h5, div, p {
 
 #content {
   background-color: #EFF8FC;
-  margin: 5px 0px 20px;
-  padding: 20px 10px;
+  margin: 5px 0px;
+  padding: 25px;
   min-height: 500px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;

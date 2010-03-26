@@ -4,28 +4,26 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :phone %><br />
+    <%= f.label :phone %>
     <%= f.text_field :phone %>
   </p>
   <p>
-    <%= f.label :referrer %><br />
+    <%= f.label :referrer %>
     <%= f.text_field :referrer %>
   </p>
-  <p>
-    <%= f.label :how_found %><br />
+  <p class="multiline">
+    <%= f.label :how_found, "How did we find them?" %>
     <%= f.text_area :how_found %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit "Create", :class => "massive_button" %>
   </p>
 <% end %>
-
-<%= link_to 'Back', recruits_path %>

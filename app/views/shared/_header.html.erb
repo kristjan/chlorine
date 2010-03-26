@@ -2,5 +2,7 @@
   <div id="header_menu">
     <%= link_to "New Recruit", new_recruit_path %>
   </div>
-  <h1>Brita<%= content_tag(:span, " &there4; #{@page_title}", :class => 'subpage') if @page_title %></h1>
+  <h1>
+    <%= link_to "Brita", root_path %><%= content_tag(:span, "&there4; #{@page_title}", :class => 'subpage') if @page_title %>
+  </h1>
 </div>

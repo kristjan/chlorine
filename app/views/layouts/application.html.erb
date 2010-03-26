@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title><%= @page_title + " | " if @page_title %>Brita</title>
-    <%= stylesheets %>
+    <%= stylesheets :include => ["forms"] %>
   </head>
   <body>
     <div id="container">
@@ -13,7 +13,7 @@
       <% if flash[:notice] %>
         <div class="flash_notice"><%= flash[:notice] %></div>
       <% end %>
-      <div id="content">
+      <div id="content" class="clearfix">
         <%= yield %>
       </div>
     </div>
