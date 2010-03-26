@@ -2,8 +2,7 @@
 
 <%= render :partial => 'files' %>
 <%= render :partial => 'info' %>
+<%= render :partial => 'actions' %>
 <%= render :partial => 'activity' %>
 <%= render :partial => 'feedback' %>
-
-<%= link_to 'Edit', edit_recruit_path(@recruit) %> |
-<%= link_to 'Back', recruits_path %>
+<%= render :partial => 'edit' %>
