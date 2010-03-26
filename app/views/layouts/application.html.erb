@@ -8,7 +8,14 @@
     <%= stylesheets %>
   </head>
   <body>
-    <div class="flash_notice"><%= flash[:notice] %></div>
-    <%= yield %>
+    <div id="container">
+      <%= render :partial => 'shared/header' %>
+      <% if flash[:notice] %>
+        <div class="flash_notice"><%= flash[:notice] %></div>
+      <% end %>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
