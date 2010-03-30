@@ -82,8 +82,15 @@ class ActivitiesController < ApplicationController
 
   def schedule
     activity_key = params.keys.detect{|k| k =~ /^activity/}
-    params[activity_key]['employee_ids'] ||= []
-    @activity.update_attributes!(params[activity_key])
+    data = params[activity_key]
+    data['employee_ids'] ||= []
+    date, hour = data.delete('date'), data.delete('hour')
+    if date && hour
+      date = Date.parse(date)
+      hour = hour.to_i
+      data['scheduled_for'] = date.to_time + hour.hours
+    end
+    @activity.update_attributes!(data)
     redirect_to @activity.recruit
   end
 

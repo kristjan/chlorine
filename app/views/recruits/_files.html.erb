@@ -6,7 +6,7 @@
   </ul>
   <% form_for(:document, :url => documents_path, :html => {:multipart => true}) do |f| %>
     <%= f.hidden_field :recruit_id, :value => @recruit.id %>
-    <%= f.file_field :uploaded_data %>
+    <%= f.file_field :uploaded_data, :title => "Upload a file..." %>
     <%= f.submit "Upload" %>
   <% end %>
 </div>

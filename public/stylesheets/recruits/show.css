@@ -21,6 +21,7 @@
 #documents {
   float: right;
   margin-right: 20px;
+  padding: 20px;
 }
 
 #documents ul {
@@ -35,19 +36,32 @@
   font-size: 1em;
 }
 
+#actions form input[type=submit] {
+  height: 2em;
+  width: 15em;
+}
+
 #actions form label {
   text-align: right;
   vertical-align: top;
-  width: 5em;
+  width: 4.5em;
 }
 
 #actions form p {
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
+}
+
+#actions .buttons {
+  float: right;
+}
+
+#actions input[type=submit] {
+  width: 15em;
 }
 
 #actions .small_form {
-  display: inline-block;
+  display: block;
 }
 
 #activity th {

@@ -74,6 +74,14 @@ class Activity < ActiveRecord::Base
     employees.delete employee
   end
 
+  def date
+    scheduled_for.to_date rescue nil
+  end
+
+  def time
+    scheduled_for
+  end
+
   def employee_ids
     employees.map(&:id)
   end

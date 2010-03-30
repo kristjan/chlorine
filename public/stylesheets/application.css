@@ -4,7 +4,7 @@ body {
   font-size: 1em;
 }
 
-body, h1, h2, h3, h4, h5, div, p {
+body, h1, h2, h3, h4, h5, div, p, ul {
   margin: 0px;
   padding: 0px;
 }
@@ -63,6 +63,11 @@ ul {
   min-height: 500px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+}
+
+/* Fix for Firefox giving this div height when it's hidden */
+#ui-datepicker-div {
+  display: none;
 }
 
 .flash_notice {
