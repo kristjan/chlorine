@@ -15,8 +15,18 @@
     <% end %>
   </p>
   <p>
-    <%= f.label :scheduled_for, "Time" %>
-    <%= f.text_field :scheduled_for %><br />
+    <%= f.label :date, "Date" %>
+    <script type="text/javascript">
+      DEFAULT_DATE = new Date("<%= activity.scheduled_for.getlocal.to_date %>")
+    </script>
+    <%= text_field_tag :date, activity.scheduled_for.getlocal.strftime("%D"),
+                       :id => 'datepicker',
+                       :name => activity.underscored_name + "[date]" %><br />
+    <%= f.label :time, "Time" %>
+    <%= select_tag :hour,
+                   options_for_select(hours_for_select,
+                                      activity.scheduled_for.getlocal.hour || "10am"),
+                   :name => activity.underscored_name + "[hour]" %>
     <%= f.submit schedule_text(activity)%>
   </p>
 <% end %>
