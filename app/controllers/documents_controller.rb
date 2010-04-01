@@ -1,9 +1,7 @@
 class DocumentsController < ApplicationController
   def create
     @document = Document.new(params[:document])
-    puts "DOCUMENT " + @document.inspect
     @document.save!
-    puts "DOCUMENT " + @document.inspect
     redirect_to @document.recruit
   end
 

@@ -5,10 +5,29 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
-  def current_user
-    params[:uid].to_i > 0 ? Employee.find(params[:uid]) : Employee.first
-  end
+  before_filter :require_login
+
   helper_method :current_user
+
+private
+
+  def current_user_session
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
+
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
+  end
+
+  def require_logout
+    redirect_to root_url if (UserSession.find.user rescue false)
+  end
+
+  def require_login
+    cookies[:redirect] = request.path
+    redirect_to login_url unless current_user
+  end
+
 end
