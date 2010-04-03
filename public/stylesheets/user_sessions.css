@@ -1,0 +1,12 @@
+#login {
+  height: 300px;
+  margin: 50px auto;
+  text-align: center;
+  width: 500px;
+}
+
+#login p {
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: 20px;
+}
