@@ -8,8 +8,10 @@ class Recruit < ActiveRecord::Base
       current_activity.friendly_name
     elsif current_activity.scheduled?
       current_activity.friendly_name
-    else
+    elsif current_activity.needs_scheduling?
       "Scheduling " + current_activity.friendly_name
+    else
+      current_activity.friendly_name
     end
   end
 

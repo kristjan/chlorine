@@ -6,9 +6,7 @@
                  :locals => {:activity => activity} %>
     <% end %>
     <div class="buttons">
-      <% if activity.scheduled? || !activity.needs_scheduling? %>
-        <%= render :partial => 'next_activity_form' %>
-      <% end %>
+      <%= render :partial => 'next_activity_form' %>
       <%= render :partial => 'reject_form' %>
       <%= render :partial => 'decline_form' %>
     </div>

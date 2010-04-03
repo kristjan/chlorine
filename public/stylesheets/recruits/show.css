@@ -10,6 +10,7 @@
 }
 
 #info h3 {
+  color: #999;
   font-size: 1em;
 }
 
@@ -37,6 +38,7 @@
 }
 
 #actions form input[type=submit] {
+  background-color: #F0F0F0;
   border: 1px solid;
   color: #333;
   cursor: pointer;
@@ -48,16 +50,36 @@
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
 }
+#actions form input[type=submit][disabled] {
+  border-color: #999;
+  color: #999;
+  cursor: default;
+}
+#actions form input[type=submit][disabled]:hover {
+  background-color: #F0F0F0;
+}
 
+#actions #schedule input[type="submit"] {
+  border-color: #022865;
+}
 #actions #schedule input[type="submit"]:hover {
   background-color: #00AEEF;
 }
 
+#actions .buttons .next_activity {
+  border-color: #060;
+}
 #actions .buttons .next_activity:hover {
   background-color: #2B2;
 }
+#actions .buttons .reject {
+  border-color: #900;
+}
 #actions .buttons .reject:hover {
   background-color: #F22;
+}
+#actions .buttons .declined {
+  border-color: #333;
 }
 #actions .buttons .declined:hover {
   background-color: #999;
@@ -113,7 +135,7 @@
 #feedback .name_and_score {
   border: 1px solid #AAC;
   float: left;
-  margin: 10px;
+  margin: 0px 10px 10px;
   padding: 10px;
   text-align: center;
   -moz-border-radius: 10px;
