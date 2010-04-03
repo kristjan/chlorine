@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title><%= @page_title + " | " if @page_title %>Brita</title>
@@ -10,10 +11,10 @@
     <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
   </head>
   <body>
-    <div id="container">
-      <%= fb_connect_javascript_tag %>
-      <%= init_fb_connect "XFBML" %>
+    <%= fb_connect_javascript_tag %>
+    <%= init_fb_connect "XFBML", :js => :jquery %>
 
+    <div id="container">
       <%= render :partial => 'shared/header' %>
       <% if flash[:notice] %>
         <div class="flash_notice"><%= flash[:notice] %></div>
