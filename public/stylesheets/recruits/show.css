@@ -29,7 +29,7 @@
 }
 
 #actions {
-  margin: 20px;
+  margin: 50px;
 }
 
 #actions form {
@@ -37,8 +37,30 @@
 }
 
 #actions form input[type=submit] {
-  height: 2em;
-  width: 15em;
+  border: 1px solid;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  height: 30px;
+  padding: 3px;
+  width: 160px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+
+#actions #schedule input[type="submit"]:hover {
+  background-color: #00AEEF;
+}
+
+#actions .buttons .next_activity:hover {
+  background-color: #2B2;
+}
+#actions .buttons .reject:hover {
+  background-color: #F22;
+}
+#actions .buttons .declined:hover {
+  background-color: #999;
 }
 
 #actions form label {
@@ -53,15 +75,21 @@
 }
 
 #actions .buttons {
-  float: right;
+  margin: 5px auto 10px;
+  width: 500px;
 }
 
-#actions input[type=submit] {
-  width: 15em;
+#actions .buttons form {
+  float: left;
 }
 
 #actions .small_form {
   display: block;
+}
+
+#schedule {
+  margin: 0px auto;
+  width: 700px;
 }
 
 #activity th {

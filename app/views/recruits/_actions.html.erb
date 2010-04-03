@@ -1,6 +1,10 @@
 <div id="actions" class="clearfix">
   <% activity = @recruit.current_activity %>
   <% if activity && !activity.terminal? %>
+    <% if activity.needs_scheduling? %>
+      <%= render :partial => 'schedule_form',
+                 :locals => {:activity => activity} %>
+    <% end %>
     <div class="buttons">
       <% if activity.scheduled? || !activity.needs_scheduling? %>
         <%= render :partial => 'next_activity_form' %>
@@ -8,9 +12,5 @@
       <%= render :partial => 'reject_form' %>
       <%= render :partial => 'decline_form' %>
     </div>
-    <% if activity.needs_scheduling? %>
-      <%= render :partial => 'schedule_form',
-                 :locals => {:activity => activity} %>
-    <% end %>
   <% end %>
 </div>
