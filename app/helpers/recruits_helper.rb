@@ -1,10 +1,10 @@
 module RecruitsHelper
   def schedule_text(activity)
-    "Schedule " + activity.friendly_name
+    activity.scheduled? ? "Reschedule" : "Schedule"
   end
 
   def advance_text(activity)
-    "Move on to " + activity.friendly_name
+    "&uarr; " + activity.friendly_name + " &uarr;"
   end
 
   def employees_for_select_options(employees=nil)

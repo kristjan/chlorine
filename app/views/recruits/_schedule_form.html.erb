@@ -1,7 +1,8 @@
 <% form_for(activity,
             :url => schedule_activity_path(activity),
             :method => :put,
-            :html => {:class => "clearfix"}) do |f| %>
+            :html => {:id => "schedule",
+                      :class => "clearfix"}) do |f| %>
   <p>
     <%= f.label :assigned_employee_ids, "Assign To" %>
     <% fields_for :assigned_employee_ids do |ef| %>
@@ -17,16 +18,20 @@
   <p>
     <%= f.label :date, "Date" %>
     <script type="text/javascript">
-      DEFAULT_DATE = new Date("<%= activity.scheduled_for.getlocal.to_date %>")
+      <% if activity.scheduled? %>
+        DEFAULT_DATE = new Date("<%= activity.scheduled_for.getlocal.to_date %>")
+      <% else %>
+        DEFAULT_DATE = ""
+      <% end %>
     </script>
-    <%= text_field_tag :date, activity.scheduled_for.getlocal.strftime("%D"),
+    <%= text_field_tag :date, (activity.scheduled_for.getlocal.strftime("%D") if activity.scheduled?),
                        :id => 'datepicker',
                        :name => activity.underscored_name + "[date]" %><br />
     <%= f.label :time, "Time" %>
     <%= select_tag :hour,
                    options_for_select(hours_for_select,
-                                      activity.scheduled_for.getlocal.hour || "10am"),
+                                      activity.scheduled? ? activity.scheduled_for.getlocal.hour : 10),
                    :name => activity.underscored_name + "[hour]" %>
-    <%= f.submit schedule_text(activity)%>
+    <%= f.submit schedule_text(activity) %>
   </p>
 <% end %>

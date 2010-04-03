@@ -10,6 +10,7 @@
 }
 
 #info h3 {
+  color: #999;
   font-size: 1em;
 }
 
@@ -29,7 +30,7 @@
 }
 
 #actions {
-  margin: 20px;
+  margin: 50px;
 }
 
 #actions form {
@@ -37,8 +38,51 @@
 }
 
 #actions form input[type=submit] {
-  height: 2em;
-  width: 15em;
+  background-color: #F0F0F0;
+  border: 1px solid;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  height: 30px;
+  padding: 3px;
+  width: 160px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+#actions form input[type=submit][disabled] {
+  border-color: #999;
+  color: #999;
+  cursor: default;
+}
+#actions form input[type=submit][disabled]:hover {
+  background-color: #F0F0F0;
+}
+
+#actions #schedule input[type="submit"] {
+  border-color: #022865;
+}
+#actions #schedule input[type="submit"]:hover {
+  background-color: #00AEEF;
+}
+
+#actions .buttons .next_activity {
+  border-color: #060;
+}
+#actions .buttons .next_activity:hover {
+  background-color: #2B2;
+}
+#actions .buttons .reject {
+  border-color: #900;
+}
+#actions .buttons .reject:hover {
+  background-color: #F22;
+}
+#actions .buttons .declined {
+  border-color: #333;
+}
+#actions .buttons .declined:hover {
+  background-color: #999;
 }
 
 #actions form label {
@@ -53,15 +97,21 @@
 }
 
 #actions .buttons {
-  float: right;
+  margin: 5px auto 10px;
+  width: 500px;
 }
 
-#actions input[type=submit] {
-  width: 15em;
+#actions .buttons form {
+  float: left;
 }
 
 #actions .small_form {
   display: block;
+}
+
+#schedule {
+  margin: 0px auto;
+  width: 700px;
 }
 
 #activity th {
@@ -85,7 +135,7 @@
 #feedback .name_and_score {
   border: 1px solid #AAC;
   float: left;
-  margin: 10px;
+  margin: 0px 10px 10px;
   padding: 10px;
   text-align: center;
   -moz-border-radius: 10px;

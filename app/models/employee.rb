@@ -9,6 +9,13 @@ class Employee < ActiveRecord::Base
     return assigned_to?(activity)
   end
 
+  def can_score?(recruit)
+    activity = recruit.current_activity
+    return false unless assigned_to?(activity)
+    activity.feedbacks(:conditions => {:employee_id => self.id}).
+             select {|f| !f.score.nil?}.none?
+  end
+
   def assigned_to?(activity)
     EmployeeActivity.exists?(:employee_id => self.id, :activity_id => activity.id)
   end

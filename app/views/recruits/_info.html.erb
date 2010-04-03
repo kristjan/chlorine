@@ -1,7 +1,7 @@
 <% @page_title = h(@recruit.name) %>
 <div id="info" class="clearfix">
   <h2><%= @recruit.status %></h2>
-  <h3>Last Activity: <%= @recruit.activities.map(&:updated_at).max.getlocal %>
+  <h3>Last Updated: <%= @recruit.activities.map(&:updated_at).max.getlocal.strftime("%B %d, %I:%M%p") %></h3>
   <p>
     <%= auto_link @recruit.email %><br />
     <%=h @recruit.phone %><br />

@@ -15,7 +15,7 @@
     </ul>
   <% end %>
   <% if current_user.can_leave_feedback_for?(@recruit) %>
-    <h2>Leave feedback for the  <%= @recruit.current_activity.friendly_name %></h2>
+    <h2>Leave feedback about the  <%= @recruit.current_activity.friendly_name %></h2>
     <% form_for(Feedback.new) do |f| %>
       <%= f.hidden_field :recruit_id, :value => @recruit.id %>
       <%= f.hidden_field :activity_id, :value => @recruit.current_activity.id %>
@@ -24,10 +24,12 @@
       <p>
         <%= f.text_area :body %>
       </p>
-      <p>
-        <%= f.label :score %>
-        <%= f.text_field :score %>
-      </p>
+      <% if current_user.can_score?(@recruit) %>
+        <p>
+          <%= f.label :score %>
+          <%= f.text_field :score %>
+        </p>
+      <% end %>
 
       <%= f.submit %>
     <% end %>
