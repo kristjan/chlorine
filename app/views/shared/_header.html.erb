@@ -1,6 +1,9 @@
 <div id="header">
   <div id="header_menu">
-    <%= link_to "New Recruit", new_recruit_path %>
+    <% if current_user %>
+      <%= link_to "New Recruit", new_recruit_path %> |
+      <%= link_to "Log Out", logout_path %>
+    <% end %>
   </div>
   <h1>
     <%= link_to "Brita", root_path %><%= content_tag(:span, "&there4; #{@page_title}", :class => 'subpage') if @page_title %>

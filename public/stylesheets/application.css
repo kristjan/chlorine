@@ -70,12 +70,30 @@ ul {
   display: none;
 }
 
-.flash_notice {
-  background-color: #98CFF0;
-  color: #FFF;
+.flash {
+  color: #000;
   text-align: center;
+  font-weight: bold;
+  margin: 0px auto;
   padding: 5px;
-  width: 100%;
+  width: 500px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+.success {
+  background-color: #0F0;
+  border: 1px solid #060;
+}
+
+.notice {
+  background-color: #FF0;
+  border: 1px solid #660;
+}
+
+.failure {
+  background-color: #F00;
+  border: 1px solid #600;
 }
 
 .clearfix:after {

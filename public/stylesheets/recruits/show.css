@@ -23,10 +23,20 @@
   float: right;
   margin-right: 20px;
   padding: 20px;
+  width: 355px;
 }
 
 #documents ul {
   list-style-image: url("/images/paperclip.gif");
+}
+
+#documents .no_files {
+  background-color: #FFFBE2;
+  border: 1px solid #FFE222;
+  color: #666;
+  margin: 0px 0px 10px;
+  padding: 15px;
+  text-align: center;
 }
 
 #actions {

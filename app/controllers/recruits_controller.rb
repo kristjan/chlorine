@@ -46,7 +46,7 @@ class RecruitsController < ApplicationController
 
     respond_to do |format|
       if @recruit.save
-        flash[:notice] = 'Recruit was successfully created.'
+        flash[:success] = "Boy, I hope #{@recruit.name} is smart!"
         format.html { redirect_to(@recruit) }
         format.xml  { render :xml => @recruit, :status => :created, :location => @recruit }
       else
@@ -61,7 +61,7 @@ class RecruitsController < ApplicationController
   def update
     respond_to do |format|
       if @recruit.update_attributes(params[:recruit])
-        flash[:notice] = 'Recruit was successfully updated.'
+        flash[:success] = 'Recruit was successfully updated.'
         format.html { redirect_to(@recruit) }
         format.xml  { head :ok }
       else

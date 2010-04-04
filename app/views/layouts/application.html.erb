@@ -16,8 +16,10 @@
 
     <div id="container">
       <%= render :partial => 'shared/header' %>
-      <% if flash[:notice] %>
-        <div class="flash_notice"><%= flash[:notice] %></div>
+      <% [:success, :notice, :failure].each do |message| %>
+        <% if flash[message] %>
+          <div class="flash <%= message %>"><%= flash[message] %></div>
+        <% end %>
       <% end %>
       <div id="content" class="clearfix">
         <%= yield %>

@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(params[:feedback])
     @feedback.save!
-    flash[:notice] = 'Feedback was successfully created.'
+    flash[:success] = "Thanks for the feedback!"
     redirect_to(@feedback.recruit)
   end
 end

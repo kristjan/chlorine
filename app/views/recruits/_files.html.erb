@@ -1,9 +1,15 @@
 <div id="documents">
-  <ul>
-    <% @recruit.documents.each do |doc| %>
-      <li><%= link_to doc.filename, doc %></li>
-    <% end %>
-  </ul>
+  <% if @recruit.documents.any? %>
+    <ul>
+      <% @recruit.documents.each do |doc| %>
+        <li><%= link_to doc.filename, doc %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="no_files">
+      No files! Have you got that r&eacute;sum&eacute; lying around somewhere?
+    </p>
+  <% end %>
   <% form_for(:document, :url => documents_path, :html => {:multipart => true}) do |f| %>
     <%= f.hidden_field :recruit_id, :value => @recruit.id %>
     <%= f.file_field :uploaded_data, :title => "Upload a file..." %>

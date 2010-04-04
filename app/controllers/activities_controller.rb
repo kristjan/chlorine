@@ -44,7 +44,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        flash[:notice] = 'Activity was successfully created.'
+        flash[:success] = "They made it to the #{@activity.friendly_name}!"
         format.html { redirect_to(@activity) }
         format.xml  { render :xml => @activity, :status => :created, :location => @activity }
       else
