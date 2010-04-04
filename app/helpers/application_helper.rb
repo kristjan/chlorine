@@ -26,4 +26,9 @@ module ApplicationHelper
     link_to employee.facebook_uid, facebook_profile_url(employee),
             :target => '_blank'
   end
+
+  def phone(number, opts={})
+    number_to_phone(number,
+      opts.reverse_merge(:delimiter => '.', :area_code => true))
+  end
 end

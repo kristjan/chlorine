@@ -50,7 +50,7 @@ class RecruitsController < ApplicationController
   def update
     respond_to do |format|
       if @recruit.update_attributes(params[:recruit])
-        flash[:success] = "#{recruit.name} likes cheese. Got it."
+        flash[:success] = "#{@recruit.name} likes cheese. Got it."
         format.html { redirect_to(@recruit) }
         format.xml  { head :ok }
       else

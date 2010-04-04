@@ -26,4 +26,8 @@ class Recruit < ActiveRecord::Base
   after_create do |recruit|
     Activity::Received.create!(:recruit => recruit, :scheduled_for => Time.now.utc)
   end
+
+  before_save do |recruit|
+    recruit.phone.gsub!(/\D/, '')
+  end
 end

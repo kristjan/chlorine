@@ -4,7 +4,7 @@
   <h3>Last Updated: <%= @recruit.activities.map(&:updated_at).max.getlocal.strftime("%B %d, %I:%M%p") %></h3>
   <p>
     <%= auto_link @recruit.email %><br />
-    <%=h @recruit.phone %><br />
+    <%= phone(@recruit.phone) %><br />
   </p>
   <p>
     <b>Referrer:</b> <%=h @recruit.referrer %><br />

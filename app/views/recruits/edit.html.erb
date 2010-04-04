@@ -13,7 +13,7 @@
   </p>
   <p>
     <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, :value => phone(@recruit.phone) %>
   </p>
   <p>
     <%= f.submit 'Update' %>

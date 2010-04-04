@@ -10,7 +10,7 @@
     <tr>
       <td><%= link_to h(recruit.name), recruit%></td>
       <td><%= mail_to recruit.email %></td>
-      <td><%=h recruit.phone %></td>
+      <td><%= phone(recruit.phone) %></td>
       <td><%= link_to 'Edit', edit_recruit_path(recruit) %></td>
     </tr>
   <% end %>
