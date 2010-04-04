@@ -29,6 +29,7 @@ module RecruitsHelper
 
   def feedback_meter(feedbacks)
     scores = feedbacks.map(&:score).compact
+    return nil if scores.empty?
     mean = scores.inject(0) {|sum, i| sum + i} / scores.size
     scaled_mean = 50 + 25*mean
     chart_url = """

@@ -14,6 +14,11 @@ class RecruitsController < ApplicationController
   end
 
   def show
+    feedback_params =
+      flash[:feedback] || {:recruit => @recruit,
+                           :activity => @recruit.current_activity,
+                           :employee => current_user}
+    @feedback = Feedback.new(feedback_params)
     respond_to do |format|
       format.html
       format.xml  { render :xml => @recruit }

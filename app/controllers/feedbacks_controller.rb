@@ -2,9 +2,14 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new(params[:feedback])
-    @feedback.save!
-    type, message = feedback_flash
-    flash[type] = message
+    if @feedback.save
+      type, message = feedback_flash
+      flash[type] = message
+    else
+      flash[:failure] =
+        @feedback.errors.full_messages.map{|m| "#{m}."}.join('<br />')
+      flash[:feedback] = @feedback.attributes
+    end
     redirect_to(@feedback.recruit)
   end
 
