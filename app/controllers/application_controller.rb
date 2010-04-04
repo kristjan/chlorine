@@ -31,9 +31,4 @@ private
       redirect_to login_path
     end
   end
-
-  def d(s)
-    Rails.logger.info ">> " + s.inspect
-  end
-
 end
