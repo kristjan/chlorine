@@ -32,7 +32,7 @@ ul {
   font-size: 3em;
   font-variant: small-caps;
   line-height: .5em;
-  margin: 10px 0px 0px 75px;
+  margin: 5px 0px 0px 75px;
 }
 
 #header h2 {
@@ -50,12 +50,11 @@ ul {
   font-variant: normal;
 }
 
-#header_menu {
+#header .menu {
   float: right;
-  padding: 5px 0px;
 }
 
-#header_menu a:hover {
+#header .menu a:hover {
   text-decoration: underline;
 }
 
@@ -79,17 +78,19 @@ ul {
   display: none;
 }
 
-.flash_container {
-  display: none;
+#flash_content {
   height: 30px;
+  position: absolute;
+  top: 30px;
 }
 
-.flash {
+#flash {
   color: #000;
+  display: none;
   text-align: center;
   font-weight: bold;
   margin: 0px 160px;
-  padding: 5px;
+  padding: 5px 0px;
   width: 640px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;

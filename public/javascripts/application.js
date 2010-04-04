@@ -1,7 +1,6 @@
 function doThings() {
   setNotab();
-  setTimeout(showFlash, 1000);
-  setTimeout(hideFlash, 10000);
+  runFlash();
 }
 
 function setNotab(){
@@ -9,13 +8,21 @@ function setNotab(){
   $('.notab').attr('tabindex', -1);
 }
 
+function runFlash() {
+  if ($('#flash').size() > 0) {
+    setTimeout(showFlash, 1000);
+    setTimeout(hideFlash, 11000);
+  }
+}
+
 function showFlash() {
-  $('.flash_container').slideDown(600);
+  $('#header_content').animate({opacity: 0.1}, 400);
+  $('#flash').effect('puff', {mode: 'show'}, 400);
 }
 
 function hideFlash() {
-  $('.flash').effect('puff', {}, 400);
-  $('.flash_container').slideUp(600);
+  $('#flash').effect('puff', {mode: 'hide'}, 400);
+  $('#header_content').animate({opacity: 1}, 400);
 }
 
 $(document).ready(doThings)

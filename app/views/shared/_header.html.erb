@@ -1,15 +1,26 @@
 <div id="header">
-  <div id="header_menu">
-    <% if current_user %>
-      <%= link_to "New Recruit", new_recruit_path %> |
-      <%= link_to "Log Out", logout_path %>
-    <% end %>
+  <div id="header_content">
+    <div class="menu">
+      <% if current_user %>
+        <%= link_to "New Recruit", new_recruit_path %> |
+        <%= link_to "Log Out", logout_path %>
+      <% end %>
+    </div>
+    <h1>
+      <%= link_to "Chlorine", root_path %>
+      <%= content_tag(:span, "&there4; #{@page_title}", :class => 'subpage') if @page_title %>
+    </h1>
+    <h2>
+      Clean your pool
+    </h2>
   </div>
-  <h1>
-    <%= link_to "Chlorine", root_path %>
-    <%= content_tag(:span, "&there4; #{@page_title}", :class => 'subpage') if @page_title %>
-  </h1>
-  <h2>
-    Clean your pool
-  </h2>
+  <% if flash.any? %>
+    <div id="flash_content">
+      <% [:success, :notice, :failure].each do |message| %>
+        <% if flash[message] %>
+          <div id="flash" class="<%= message %>"><%= flash[message] %></div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
