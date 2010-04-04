@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session ||= UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:success] = "Nice work. You must do that a lot."
+      flash[:success] = "Come on in, the water's fine!"
       redirect_to(cookies[:redirect] || root_path)
       cookies[:redirect] = nil
     else
