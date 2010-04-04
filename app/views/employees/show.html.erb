@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @employee.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= auto_link @employee.email %>
+</p>
+
+<p>
+  <b>Facebook ID:</b>
+  <%= link_to_facebook @employee %>
+</p>
+
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back to Employees', employees_path %>

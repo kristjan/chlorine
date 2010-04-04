@@ -17,4 +17,13 @@ module ApplicationHelper
       ["7pm",  19]
     ]
   end
+
+  def facebook_profile_url(employee)
+    "http://facebook.com/profile.php?id=#{employee.facebook_uid}"
+  end
+
+  def link_to_facebook(employee)
+    link_to employee.facebook_uid, facebook_profile_url(employee),
+            :target => '_blank'
+  end
 end

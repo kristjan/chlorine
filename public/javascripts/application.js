@@ -1,6 +1,12 @@
 function doThings() {
+  setNotab();
   setTimeout(showFlash, 1000);
   setTimeout(hideFlash, 10000);
+}
+
+function setNotab(){
+  $('a').attr('tabindex', -1);
+  $('.notab').attr('tabindex', -1);
 }
 
 function showFlash() {

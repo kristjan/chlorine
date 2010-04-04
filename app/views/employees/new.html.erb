@@ -1,0 +1,20 @@
+<% @page_title = "New Employee" %>
+
+<% form_for(@employee) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.submit 'Create', :class => 'massive_button', :tabindex => 4 %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :tabindex => 1 %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, :tabindex => 2 %>
+  </p>
+  <p>
+    <%= f.label :facebook_uid, "Facebook ID" %>
+    <%= f.text_field :facebook_uid, :tabindex => 3 %>
+  </p>
+<% end %>
+<%= link_to 'Nevermind', employees_path %>

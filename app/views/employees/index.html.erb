@@ -1,0 +1,22 @@
+<% @page_title = "Employees" %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Facebook ID</th>
+  </tr>
+
+<% @employees.each do |employee| %>
+  <tr>
+    <td><%= link_to employee.name, employee %></td>
+    <td><%= auto_link employee.email %></td>
+    <td><%= link_to_facebook employee %></td>
+    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Fire', employee, :confirm => 'Is that wise?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New employee', new_employee_path %>
