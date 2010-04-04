@@ -16,6 +16,7 @@ class UserSessionsController < ApplicationController
       redirect_to(cookies[:redirect] || root_path)
       cookies[:redirect] = nil
     else
+d @user_session.errors
       render "new"
     end
   end
