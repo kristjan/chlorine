@@ -5,7 +5,7 @@ class RecruitsController < ApplicationController
     :only => [:advance, :reject, :decline]
 
   def index
-    @recruits = Recruit.all
+    @recruits = Recruit.in_process
 
     respond_to do |format|
       format.html

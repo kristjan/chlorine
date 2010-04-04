@@ -22,6 +22,10 @@ module ApplicationHelper
     "http://facebook.com/profile.php?id=#{employee.facebook_uid}"
   end
 
+  def format_time(time)
+    time.getlocal.strftime("%B %d, %I:%M%p") rescue '&mdash;'
+  end
+
   def link_to_facebook(employee)
     link_to employee.facebook_uid, facebook_profile_url(employee),
             :target => '_blank'
@@ -29,6 +33,6 @@ module ApplicationHelper
 
   def phone(number, opts={})
     number_to_phone(number,
-      opts.reverse_merge(:delimiter => '.', :area_code => true))
+      opts.reverse_merge(:delimiter => '.'))
   end
 end

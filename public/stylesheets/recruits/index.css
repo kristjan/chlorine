@@ -1,0 +1,8 @@
+table th {
+  text-align: left;
+  font-variant: small-caps;
+}
+
+table td {
+  width: 150px;
+}

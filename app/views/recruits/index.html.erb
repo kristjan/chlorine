@@ -4,6 +4,8 @@
     <th>Name</th>
     <th>Email</th>
     <th>Phone</th>
+    <th>Next Scheduled</th>
+    <th>Last Activity</th>
   </tr>
 
   <% @recruits.each do |recruit| %>
@@ -11,11 +13,8 @@
       <td><%= link_to h(recruit.name), recruit%></td>
       <td><%= mail_to recruit.email %></td>
       <td><%= phone(recruit.phone) %></td>
-      <td><%= link_to 'Edit', edit_recruit_path(recruit) %></td>
+      <td><%= format_time(recruit.current_activity.scheduled_time) %></td>
+      <td><%= format_time(recruit.activities.map(&:updated_at).max) %></td>
     </tr>
   <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New recruit', new_recruit_path %>

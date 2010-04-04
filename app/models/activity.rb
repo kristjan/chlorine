@@ -49,9 +49,15 @@ class Activity < ActiveRecord::Base
   ]
 
   TERMINAL_ACTIVITIES    = [Hired, Rejected, Declined]
+  NONTERMINAL_ACTIVITIES = ACTIVITY_ORDER - TERMINAL_ACTIVITIES
   SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,
                             CodingSession, TalkToJoe]
   FEEDBACK_ACTIVITIES    = [PhoneScreen, WhiteboardSession, CodingSession, ReferenceCheck]
+
+  named_scope :in_process, :conditions => {
+    :type => NONTERMINAL_ACTIVITIES.map(&:name),
+    :completed_at => nil
+  }
 
   def self.next(activity)
     return nil if activity.terminal?
