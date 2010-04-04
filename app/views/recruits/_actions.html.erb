@@ -2,13 +2,13 @@
   <% activity = @recruit.current_activity %>
   <% if activity && !activity.terminal? %>
     <% if activity.needs_scheduling? %>
-      <%= render :partial => 'schedule_form',
+      <%= render :partial => 'recruits/actions/schedule_form',
                  :locals => {:activity => activity} %>
     <% end %>
     <div class="buttons">
-      <%= render :partial => 'next_activity_form' %>
-      <%= render :partial => 'reject_form' %>
-      <%= render :partial => 'decline_form' %>
+      <%= render :partial => 'recruits/actions/next_activity_form' %>
+      <%= render :partial => 'recruits/actions/reject_form' %>
+      <%= render :partial => 'recruits/actions/decline_form' %>
     </div>
   <% end %>
 </div>

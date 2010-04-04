@@ -1,0 +1,22 @@
+<ul>
+  <% activity.feedbacks.each do |feedback| %>
+    <a name="<%= feedback_anchor(feedback) %>"></a>
+    <li class="clearfix">
+      <div>
+        <div class="name_and_score <%= feedback.score_tier %>">
+          <span class="name"><%=h feedback.employee.name %></span><br />
+          <span class="score"><%= feedback.score || '&mdash;' %></span>
+        </div>
+      </div>
+      <div class="body short">
+        <%=h truncate(feedback.body, 500, nil) %>
+          <% if feedback.body.length > 500 %>
+            <%= link_to_function "&raquo;", "expandFeedback(this)", :class => 'more_link' %>
+          <% end %>
+      </div>
+      <div class="body long">
+        <%=h feedback.body %>
+      </div>
+    </li>
+  <% end %>
+</ul>
