@@ -13,22 +13,22 @@
     <% end %>
   </p>
   <p>
-    <%= f.label :date, "Date" %>
+    <%= f.label :scheduled_date, "Date" %>
     <script type="text/javascript">
       <% if activity.scheduled? %>
-        DEFAULT_DATE = new Date("<%= activity.scheduled_for.getlocal.to_date %>")
+        DEFAULT_DATE = new Date("<%= activity.scheduled_date %>")
       <% else %>
         DEFAULT_DATE = ""
       <% end %>
     </script>
-    <%= text_field_tag :date, (activity.scheduled_for.getlocal.strftime("%D") if activity.scheduled?),
-                       :id => 'datepicker',
-                       :name => activity.underscored_name + "[date]" %><br />
+    <%= f.text_field :scheduled_date,
+          :value => ((activity.scheduled_date.strftime("%D") if activity.scheduled?)),
+          :id => 'datepicker' %><br />
     <%= f.label :time, "Time" %>
-    <%= select_tag :hour,
-                   options_for_select(hours_for_select,
-                                      activity.scheduled? ? activity.scheduled_for.getlocal.hour : 10),
-                   :name => activity.underscored_name + "[hour]" %>
+    <%= f.select :scheduled_hour,
+                 hours_for_select,
+                 :name => activity.underscored_name + "[scheduled_hour]",
+                 :include_blank => true %>
     <%= f.submit schedule_text(activity) %>
   </p>
 <% end %>

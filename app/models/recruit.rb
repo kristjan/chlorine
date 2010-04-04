@@ -24,7 +24,7 @@ class Recruit < ActiveRecord::Base
   end
 
   after_create do |recruit|
-    Activity::Received.create!(:recruit => recruit, :scheduled_for => Time.now.utc)
+    Activity::Received.create!(:recruit => recruit)
   end
 
   before_save do |recruit|

@@ -7,7 +7,7 @@
   <% @recruit.activities.each do |activity| %>
     <tr>
       <td class="activity_name"><%= activity.friendly_name %></td>
-      <td class"time"><%= activity.scheduled_for.getlocal rescue "-" %></td>
+      <td class"time"><%= activity.scheduled_time.getlocal rescue "-" %></td>
       <td class"time"><%= activity.completed_at.getlocal  rescue "-" %></td>
     </tr>
   <% end %>

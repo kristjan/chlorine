@@ -74,12 +74,8 @@ class Activity < ActiveRecord::Base
     employees.delete employee
   end
 
-  def date
-    scheduled_for.to_date rescue nil
-  end
-
-  def time
-    scheduled_for
+  def scheduled_time
+    (scheduled_date + scheduled_hour.hours).utc if scheduled_date && scheduled_hour
   end
 
   def employee_ids
@@ -99,7 +95,7 @@ class Activity < ActiveRecord::Base
   end
 
   def scheduled?
-    !scheduled_for.nil?
+    !scheduled_time.nil?
   end
 
   def needs_scheduling?

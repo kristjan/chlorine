@@ -5,12 +5,6 @@ class ActivitiesController < ApplicationController
     activity_key = params.keys.detect{|k| k =~ /^activity/}
     data = params[activity_key]
     data['employee_ids'] ||= []
-    date, hour = data.delete('date'), data.delete('hour')
-    if date && hour
-      date = Date.parse(date)
-      hour = hour.to_i
-      data['scheduled_for'] = date.to_time + hour.hours
-    end
     @activity.update_attributes!(data)
     flash[:success] = "You are a master of time and space."
     redirect_to @activity.recruit
