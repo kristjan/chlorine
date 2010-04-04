@@ -1,13 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :activities,
-    :member => {
-      :schedule => :put,
-    }
-
+  map.resources :activities
   map.resources :documents
-
   map.resources :feedbacks
-
   map.resources :recruits,
     :member => {
       :advance  => :put,

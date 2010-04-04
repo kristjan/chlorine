@@ -1,8 +1,5 @@
-<% form_for(activity,
-            :url => schedule_activity_path(activity),
-            :method => :put,
-            :html => {:id => "schedule",
-                      :class => "clearfix"}) do |f| %>
+<% form_for(activity, :url => activity_path(activity), :method => :put,
+            :html => {:id => "schedule", :class => "clearfix"}) do |f| %>
   <p>
     <%= f.label :assigned_employee_ids, "Assign To" %>
     <% fields_for :assigned_employee_ids do |ef| %>

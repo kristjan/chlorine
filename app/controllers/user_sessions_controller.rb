@@ -13,21 +13,23 @@ class UserSessionsController < ApplicationController
   def create
     @user_session ||= UserSession.new(params[:user_session])
     if @user_session.save
+      flash[:success] = "Nice work. You must do that a lot."
       redirect_to(cookies[:redirect] || root_path)
       cookies[:redirect] = nil
     else
+      flash[:failure] = "Wow, how'd you mess that one up? Try farther left."
       render "new"
     end
   end
 
   def destroy
     current_user_session && current_user_session.destroy
-    # Facebook
     if facebook_session
       clear_fb_cookies!
       clear_facebook_session_information
     end
 
+    flash[:notice] = "And, we're out."
     redirect_to login_path
   end
 
@@ -37,8 +39,6 @@ class UserSessionsController < ApplicationController
       if @employee
         @user_session = UserSession.new(@employee)
         create
-      else
-        # do something to validate user with facebook
       end
     else
       clear_fb_cookies!

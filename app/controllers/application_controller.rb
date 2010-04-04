@@ -1,9 +1,6 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  helper :all
+  protect_from_forgery
 
   before_filter :require_login
 
@@ -23,11 +20,15 @@ private
   end
 
   def require_logout
-    redirect_to root_url if (UserSession.find.employee rescue false)
+    if (UserSession.find.employee rescue false)
+      flash[:notice] = "No extra points for signing in twice."
+      redirect_to root_path
+    end
   end
 
   def require_login
     unless current_user
+      flash[:notice] = "You know the drill."
       cookies[:redirect] = request.path
       redirect_to login_path
     end

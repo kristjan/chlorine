@@ -70,13 +70,18 @@ ul {
   display: none;
 }
 
+.flash_container {
+  display: none;
+  height: 30px;
+}
+
 .flash {
   color: #000;
   text-align: center;
   font-weight: bold;
-  margin: 0px auto;
+  margin: 0px 160px;
   padding: 5px;
-  width: 500px;
+  width: 640px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
 }

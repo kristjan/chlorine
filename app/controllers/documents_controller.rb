@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params[:document])
     @document.save!
+    flash[:success] = "I'll just go ahead and file that for later."
     redirect_to @document.recruit
   end
 
