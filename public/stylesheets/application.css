@@ -79,13 +79,16 @@ ul {
 }
 
 #flash_content {
-  height: 30px;
+  cursor: pointer;
+  height: 60px;
   position: absolute;
-  top: 30px;
+  top: 0px;
+  padding: 30px 0px;
 }
 
 #flash {
   color: #000;
+  cursor: pointer;
   display: none;
   text-align: center;
   font-weight: bold;
@@ -94,6 +97,10 @@ ul {
   width: 640px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
+}
+
+#flash:hover {
+  opacity: .8;
 }
 
 .success {

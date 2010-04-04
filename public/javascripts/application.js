@@ -8,10 +8,16 @@ function setNotab(){
   $('.notab').attr('tabindex', -1);
 }
 
+FLASH_DESTROYED = false;
+
 function runFlash() {
   if ($('#flash').size() > 0) {
     setTimeout(showFlash, 500);
     setTimeout(hideFlash, 10500);
+    $('#flash_content').click(function() {
+        hideFlash();
+        FLASH_DESTROYED = true;
+    });
   }
 }
 
@@ -21,7 +27,9 @@ function showFlash() {
 }
 
 function hideFlash() {
-  $('#flash').effect('puff', {mode: 'hide'}, 400);
+  if (!FLASH_DESTROYED) {
+    $('#flash').effect('puff', {mode: 'hide'}, 400);
+  }
   $('#header_content').animate({opacity: 1}, 400);
 }
 
