@@ -5,7 +5,7 @@ class Employee < ActiveRecord::Base
   def can_leave_feedback_for?(recruit)
     activity = recruit.current_activity
     return false unless activity.gets_feedback?
-    return true if activity.initial_feedback_submitted?
+    return true if activity.has_all_feedback?
     return assigned_to?(activity)
   end
 

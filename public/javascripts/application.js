@@ -10,8 +10,8 @@ function setNotab(){
 
 function runFlash() {
   if ($('#flash').size() > 0) {
-    setTimeout(showFlash, 1000);
-    setTimeout(hideFlash, 11000);
+    setTimeout(showFlash, 500);
+    setTimeout(hideFlash, 10500);
   }
 }
 

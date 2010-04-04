@@ -4,6 +4,26 @@ class Activity < ActiveRecord::Base
   has_many :employees, :through => :employee_activities
   has_many :feedbacks
 
+  validates_presence_of :recruit
+  validates_presence_of :scheduled_date, :if => :scheduled_hour
+  validates_presence_of :scheduled_hour, :if => :scheduled_date
+
+  validate :time_is_in_the_future
+  validate :number_of_people_assigned
+
+  def time_is_in_the_future
+    if scheduled_time && scheduled_time_changed? && scheduled_time.past?
+      errors.add(:scheduled_time,
+                 "must be in the future unless you're Arnold Schwarzenegger")
+    end
+  end
+
+  def number_of_people_assigned
+    if employee_ids_changed? && @employee_ids_to_save.any? && @employee_ids_to_save.size != employees_required
+      errors.add(:employees, "are important, but you need to pick #{employees_required}")
+    end
+  end
+
   class Received          < Activity; end
   class PhoneIntro        < Activity; end
   class PhoneScreen       < Activity; end
@@ -35,7 +55,6 @@ class Activity < ActiveRecord::Base
 
   def self.next(activity)
     return nil if activity.terminal?
-    puts "ACTIVITY: " + activity.inspect
     ACTIVITY_ORDER[ACTIVITY_ORDER.index(activity.class) + 1]
   end
 
@@ -78,16 +97,34 @@ class Activity < ActiveRecord::Base
     (scheduled_date + scheduled_hour.hours).utc if scheduled_date && scheduled_hour
   end
 
+  def scheduled_time_changed?
+    scheduled_date_changed? || scheduled_hour_changed?
+  end
+
   def employee_ids
     employees.map(&:id)
   end
 
   def employee_ids=(ids)
-    ids = ids.map(&:to_i)
-    to_create = ids - employee_ids
-    to_delete = employee_ids - ids
+    Rails.logger.info "Setting employee ids to #{ids}"
+    @employee_ids_to_save = ids.map(&:to_i)
+  end
+
+  def employee_ids_changed?
+    @employee_ids_to_save && @employee_ids_to_save.sort != employee_ids.sort
+  end
+
+  def reassign_employees
+    Rails.logger.info "Saving employees"
+    to_create = @employee_ids_to_save - employee_ids
+    to_delete = employee_ids - @employee_ids_to_save
     to_create.each {|id| assign!(id)   }
     to_delete.each {|id| unassign!(id) }
+  end
+
+  def employees_required
+    return 0 unless needs_scheduling?
+    self.is_a?(WhiteboardSession) ? 4 : 1
   end
 
   def finish!
@@ -106,12 +143,23 @@ class Activity < ActiveRecord::Base
     FEEDBACK_ACTIVITIES.include?(self.class)
   end
 
-  def initial_feedback_submitted?
+  def has_all_feedback?
     feedbacks.any? && employees.map(&:id) == feedbacks.map(&:employee_id).uniq
+  end
+
+  def ready_to_move_on?
+    return false if needs_scheduling? && !scheduled?
+    return false if gets_feedback? && !has_all_feedback?
+    return true
   end
 
   def terminal?
     TERMINAL_ACTIVITIES.include?(self.class)
+  end
+
+  before_save do |activity|
+    Rails.logger.info "Before save #{@employee_ids_to_save.inspect}"
+    activity.reassign_employees if activity.employee_ids_changed?
   end
 
 end

@@ -143,13 +143,36 @@
 }
 
 #feedback .name_and_score {
-  border: 1px solid #AAC;
+  border: 3px solid;
   float: left;
+  height: 60px;
   margin: 0px 10px 10px;
   padding: 10px;
   text-align: center;
+  width: 60px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+}
+
+#feedback .awesome {
+  background-color: #0D0;
+  border-color: #090;
+}
+#feedback .good {
+  background-color: #5C5;
+  border-color: #050;
+}
+#feedback .neutral {
+  background-color: #DD9;
+  border-color: #990;
+}
+#feedback .bad {
+  background-color: #D55;
+  border-color: #500;
+}
+#feedback .awful {
+  background-color: #D00;
+  border-color: #900;
 }
 
 #feedback .score {
@@ -161,7 +184,7 @@
 }
 
 #feedback li {
-  margin: 25px 0px;
+  margin: 25px;
 }
 
 #edit {

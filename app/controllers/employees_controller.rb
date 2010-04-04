@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       if @employee.save
         flash[:success] = "The system works!"
-        format.html { redirect_to(@employee) }
+        format.html { redirect_to employees_path }
         format.xml  { render :xml => @employee, :status => :created, :location => @employee }
       else
         flash[:failure] = "You've made a terrible mistake."
@@ -53,7 +53,7 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
         flash[:success] = "Gee, 'ts not every day you change uniquely identifying information."
-        format.html { redirect_to(@employee) }
+        format.html { redirect_to employees_path }
         format.xml  { head :ok }
       else
         flash[:failure] = "Whatever was there before worked better."
@@ -69,7 +69,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       flash[:failure] = "I can't help but feel this is a step backwards."
-      format.html { redirect_to(employees_url) }
+      format.html { redirect_to employees_path }
       format.xml  { head :ok }
     end
   end

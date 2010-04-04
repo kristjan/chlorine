@@ -5,7 +5,7 @@
     <ul>
       <% activity.feedbacks.each do |feedback| %>
         <li class="clearfix">
-          <div class="name_and_score">
+          <div class="name_and_score <%= feedback.score_tier %>">
             <span class="name"><%=h feedback.employee.name %></span><br />
             <span class="score"><%= feedback.score %></span>
           </div>

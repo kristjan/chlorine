@@ -1,12 +1,18 @@
 class ActivitiesController < ApplicationController
   before_filter :set_activity, :except => [:create]
 
+  include ActionView::Helpers::ActiveRecordHelper
+
   def update
     activity_key = params.keys.detect{|k| k =~ /^activity/}
     data = params[activity_key]
     data['employee_ids'] ||= []
-    @activity.update_attributes!(data)
-    flash[:success] = "You are a master of time and space."
+    if @activity.update_attributes(data)
+      flash[:success] = "You are a master of time and space."
+    else
+      flash[:failure] =
+        @activity.errors.full_messages.map {|m| "#{m}." }.join('<br />')
+    end
     redirect_to @activity.recruit
   end
 
