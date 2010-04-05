@@ -41,6 +41,6 @@ class Recruit < ActiveRecord::Base
   end
 
   before_save do |recruit|
-    recruit.phone.gsub!(/\D/, '')
+    recruit.phone.gsub!(/\D/, '') if recruit.phone
   end
 end
