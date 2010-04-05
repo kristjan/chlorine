@@ -1,8 +1,12 @@
 class DocumentsController < ApplicationController
   def create
     @document = Document.new(params[:document])
-    @document.save!
-    flash[:success] = "I'll just go ahead and file that for later."
+    Rails.logger.info @document.inspect
+    if @document.save
+      flash[:success] = "I'll just go ahead and file that for later."
+    else
+      flash[:failure] = "That doesn't looke like any file I've ever seen."
+    end
     redirect_to @document.recruit
   end
 
