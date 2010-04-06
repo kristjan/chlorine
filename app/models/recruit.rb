@@ -8,17 +8,33 @@ class Recruit < ActiveRecord::Base
     "Ops Ostrich"
   ]
 
-  def self.in_process
+  def self.by_action_needed
     activities = Activity.in_process.all
-    activities.map(&:recruit).uniq.partition do |recruit|
-      !recruit.current_activity.scheduled?
-    end.map do |recruits|
-      recruits.sort_by do |recruit|
-        recruit.current_activity.scheduled? ?
-          recruit.current_activity.scheduled_time :
-          recruit.current_activity.updated_at
+    recruits = activities.map(&:recruit).uniq
+    by_state = recruits.group_by do |recruit|
+      activity = recruit.current_activity
+      result = :confused
+      if activity.scheduled?
+        result = :decision   if  activity.scheduled_time.past?
+        result = :upcoming   if  activity.scheduled_time.future?
+      else
+        result = :scheduling
       end
-    end.flatten
+      result
+    end
+
+    [:decision, :upcoming, :scheduling, :confused].each do |state|
+      by_state[state] ||= []
+    end
+
+    by_state[:decision] =
+      by_state[:decision].sort_by {|recruit| recruit.current_activity.scheduled_time}
+    by_state[:upcoming] =
+      by_state[:upcoming].sort_by {|recruit| recruit.current_activity.scheduled_time}
+    by_state[:scheduling] =
+      by_state[:scheduling].sort_by {|recruit| recruit.current_activity.created_at}
+
+    by_state
   end
 
   def status

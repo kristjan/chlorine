@@ -1,0 +1,24 @@
+<% if recruits.any? %>
+  <table>
+    <tr><th class="state" colspan=6><%= state %></th></tr>
+    <tr>
+      <th>Name</th>
+      <th>Stage</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Next Scheduled</th>
+      <th>Last Activity</th>
+    </tr>
+
+    <% recruits.each do |recruit| %>
+      <tr>
+        <td><%= link_to h(recruit.name), recruit%></td>
+        <td><%= recruit.current_activity.friendly_name %></td>
+        <td><%= mail_to recruit.email %></td>
+        <td><%= phone(recruit.phone) %></td>
+        <td><%= format_time(recruit.current_activity.scheduled_time) %></td>
+        <td><%= format_time(recruit.activities.map(&:updated_at).max) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

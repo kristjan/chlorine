@@ -1,8 +1,19 @@
+table {
+  margin-bottom: 25px;
+}
+
 table th {
   text-align: left;
   font-variant: small-caps;
 }
 
+table th.state {
+  background-color: #8DD9F8;
+  height: 20px;
+  text-align: center;
+}
+
 table td {
+  padding: 5px 0px;
   width: 150px;
 }
