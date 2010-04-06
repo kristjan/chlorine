@@ -7,7 +7,6 @@ function set_up_recruits_show() {
 }
 
 function expandActivity(elem, callback) {
-  console.log(elem);
   $(elem).parents('.activity').children('ul').
           slideToggle(400, callback);
   var cur = $(elem).html();
@@ -19,12 +18,20 @@ function expandActivity(elem, callback) {
 }
 
 function expandToFeedback(activity_id, anchor) {
-  expandActivity($('#activity_'+activity_id).find('.tree_expand a'),
-      function() {
-        $('html, body').animate({
-          scrollTop: $('[name='+anchor+']').offset().top
-        }, 500);
-      });
+  var activity = $('#activity_'+activity_id);
+  var feedback = activity.find('ul');
+
+  var scrollToAnchor = function() {
+    $('html, body').animate({
+      scrollTop: $('[name='+anchor+']').offset().top
+    }, 500);
+  };
+
+  if (feedback.css('display') == 'none') {
+    expandActivity(activity.find('.tree_expand a'), scrollToAnchor);
+  } else {
+    scrollToAnchor();
+  }
 }
 
 function expandFeedback(elem) {
