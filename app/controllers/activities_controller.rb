@@ -10,8 +10,7 @@ class ActivitiesController < ApplicationController
     if @activity.update_attributes(data)
       flash[:success] = "You are a master of time and space."
     else
-      flash[:failure] =
-        @activity.errors.full_messages.map {|m| "#{m}." }.join('<br />')
+      flash[:failure] = formatted_errors(@activity.errors)
     end
     redirect_to @activity.recruit
   end

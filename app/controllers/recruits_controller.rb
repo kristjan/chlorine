@@ -46,6 +46,7 @@ class RecruitsController < ApplicationController
         format.html { redirect_to(@recruit) }
         format.xml  { render :xml => @recruit, :status => :created, :location => @recruit }
       else
+        flash[:failure] = formatted_errors(@recruit.errors)
         format.html { render :action => "new" }
         format.xml  { render :xml => @recruit.errors, :status => :unprocessable_entity }
       end

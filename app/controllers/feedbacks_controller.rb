@@ -6,8 +6,7 @@ class FeedbacksController < ApplicationController
       type, message = feedback_flash
       flash[type] = message
     else
-      flash[:failure] =
-        @feedback.errors.full_messages.map{|m| "#{m}."}.join('<br />')
+      flash[:failure] = formatted_errors(@feedback.errors)
       flash[:feedback] = @feedback.attributes
     end
     redirect_to(@feedback.recruit)

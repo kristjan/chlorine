@@ -1,8 +1,6 @@
 <% @page_title = "New Recruit" %>
 
 <% form_for(@recruit) do |f| %>
-  <%= f.error_messages %>
-
   <%= f.submit "Create", :class => "massive_button", :tabindex => 6 %>
   <p>
     <%= f.label :name %>

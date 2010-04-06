@@ -3,6 +3,8 @@ class Recruit < ActiveRecord::Base
   has_many :activities, :order => 'created_at'
   has_many :documents
 
+  validates_presence_of :name
+
   POSITIONS = [
     "Kode Koala",
     "Ops Ostrich"

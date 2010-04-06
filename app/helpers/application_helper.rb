@@ -26,6 +26,10 @@ module ApplicationHelper
     time.getlocal.strftime("%B %d, %I:%M%p") rescue '&mdash;'
   end
 
+  def formatted_errors(errors)
+    errors.full_messages.map {|m| "#{m}."}.join("<br />")
+  end
+
   def link_to_facebook(employee)
     link_to employee.facebook_uid, facebook_profile_url(employee),
             :target => '_blank'

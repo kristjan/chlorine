@@ -69,3 +69,18 @@ form input[type=submit].massive_button:focus {
   cursor: pointer;
   background-position: 100% 100%;
 }
+
+form .fieldWithErrors {
+  display: inline;
+  margin: 0px;
+  padding: 0px
+}
+
+form .fieldWithErrors input {
+  background-color: #FDD;
+  border: 1px solid #FAA;
+}
+form .fieldWithErrors input:hover {
+  background-color: #FEE;
+  border: 1px solid #F88;
+}
