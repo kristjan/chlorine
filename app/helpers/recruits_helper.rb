@@ -39,4 +39,8 @@ module RecruitsHelper
     """.gsub(/\s/, '')
     image_tag chart_url, :title => mean.round(2)
   end
+
+  def positions_for_select
+    Recruit::POSITIONS.map{|p| [p, p]}
+  end
 end

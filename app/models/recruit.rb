@@ -3,6 +3,11 @@ class Recruit < ActiveRecord::Base
   has_many :activities, :order => 'created_at'
   has_many :documents
 
+  POSITIONS = [
+    "Kode Koala",
+    "Ops Ostrich"
+  ]
+
   def self.in_process
     activities = Activity.in_process.all
     activities.map(&:recruit).uniq.partition do |recruit|

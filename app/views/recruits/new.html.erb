@@ -9,19 +9,23 @@
     <%= f.text_field :name, :tabindex => 1 %>
   </p>
   <p>
+    <%= f.label :position %>
+    <%= f.select :position, positions_for_select,
+                 :include_blank => true, :tabindex => 2 %>
+  <p>
     <%= f.label :email %>
-    <%= f.text_field :email, :tabindex => 2 %>
+    <%= f.text_field :email, :tabindex => 3 %>
   </p>
   <p>
     <%= f.label :phone %>
-    <%= f.text_field :phone, :value => phone(@recruit.phone), :tabindex => 3 %>
+    <%= f.text_field :phone, :value => phone(@recruit.phone), :tabindex => 4 %>
   </p>
   <p>
     <%= f.label :referrer %>
-    <%= f.text_field :referrer, :tabindex => 4 %>
+    <%= f.text_field :referrer, :tabindex => 5 %>
   </p>
   <p class="multiline">
     <%= f.label :how_found, "How did we find them?" %>
-    <%= f.text_area :how_found, :tabindex => 5 %>
+    <%= f.text_area :how_found, :tabindex => 6 %>
   </p>
 <% end %>
