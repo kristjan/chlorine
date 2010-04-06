@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
-
-  before_filter :require_login
-
+  before_filter :require_login, :except => :oops
   helper_method :current_user
+
+  def oops
+    raise "You should really clean the filters every once in a while."
+  end
 
 private
 
