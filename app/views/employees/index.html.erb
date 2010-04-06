@@ -12,7 +12,6 @@
     <td><%= auto_link employee.email %></td>
     <td><%= link_to_facebook employee %></td>
     <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Fire', employee, :confirm => 'Is that wise?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
