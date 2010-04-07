@@ -1,5 +1,6 @@
 <ul>
   <% activity.feedbacks.each do |feedback| %>
+    <% next unless activity.has_all_feedback? || feedback.employee == current_user %>
     <a name="<%= feedback_anchor(feedback) %>"></a>
     <li class="clearfix">
       <div>

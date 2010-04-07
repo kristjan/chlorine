@@ -9,7 +9,13 @@ class Feedback < ActiveRecord::Base
   validates_numericality_of :score, :allow_nil => true,
     :greater_than_or_equal_to => -2, :less_than_or_equal_to => 2
 
-  named_scope :with_scores, :conditions => "score is not null"
+  named_scope :with_scores, :conditions => "`score` is not null"
+  named_scope(:for_activity, lambda do |activity|
+    {:conditions => {:activity_id => activity.id}}
+  end)
+  named_scope(:from_employee, lambda do |employee|
+    {:conditions => {:employee_id => employee.id}}
+  end)
 
   def self.tier_for(score)
     case score

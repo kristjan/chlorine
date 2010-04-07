@@ -1,22 +1,20 @@
-<% if current_user.can_leave_feedback_for?(@recruit) %>
-  <div id="feedback_form">
-    <h2>Leave feedback about the  <%= @recruit.current_activity.friendly_name %></h2>
-    <% form_for(@feedback) do |f| %>
-      <%= f.hidden_field :recruit_id  %>
-      <%= f.hidden_field :activity_id %>
-      <%= f.hidden_field :employee_id %>
+<div id="feedback_form">
+  <h2>Leave feedback about the  <%= activity.friendly_name %></h2>
+  <% form_for(@feedback) do |f| %>
+    <%= f.hidden_field :recruit_id  %>
+    <%= f.hidden_field :activity_id %>
+    <%= f.hidden_field :employee_id %>
 
+    <p>
+      <%= f.text_area :body %>
+    </p>
+    <% if current_user.can_score?(activity) %>
       <p>
-        <%= f.text_area :body %>
+        <%= f.label :score %>
+        <%= f.text_field :score %>
       </p>
-      <% if current_user.can_score?(@recruit) %>
-        <p>
-          <%= f.label :score %>
-          <%= f.text_field :score %>
-        </p>
-      <% end %>
-
-      <%= f.submit %>
     <% end %>
-  </div>
-<% end %>
+
+    <%= f.submit %>
+  <% end %>
+</div>

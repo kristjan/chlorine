@@ -4,16 +4,13 @@ class Employee < ActiveRecord::Base
 
   def can_leave_feedback_for?(recruit)
     activity = recruit.current_activity
-    return false unless activity.gets_feedback?
+    return false unless activity.requires_feedback?
     return true if activity.has_all_feedback?
     return assigned_to?(activity)
   end
 
-  def can_score?(recruit)
-    activity = recruit.current_activity
-    return false unless assigned_to?(activity)
-    activity.feedbacks(:conditions => {:employee_id => self.id}).
-             select {|f| !f.score.nil?}.none?
+  def can_score?(activity)
+    assigned_to?(activity) && !activity.received_score_from?(self)
   end
 
   def assigned_to?(activity)

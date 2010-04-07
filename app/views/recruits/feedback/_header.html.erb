@@ -1,10 +1,12 @@
 <div class="clearfix">
-  <div class="dots">
-    <% activity.feedbacks.with_scores.sort_by(&:score).each do |feedback| %>
-      <%= feedback_dot(feedback) %>
-    <% end %>
-    <%= feedback_meter(activity.feedbacks) %>
-  </div>
+  <% if activity.has_all_feedback? %>
+    <div class="dots">
+      <% activity.feedbacks.with_scores.sort_by(&:score).each do |feedback| %>
+        <%= feedback_dot(feedback) %>
+      <% end %>
+      <%= feedback_meter(activity.feedbacks) %>
+    </div>
+  <% end %>
   <h1>
     <span class="tree_expand"><%= link_to_function "+", "expandActivity(this)" %></span>
     <%= activity.friendly_name %> Feedback

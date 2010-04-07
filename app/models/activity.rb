@@ -133,6 +133,10 @@ class Activity < ActiveRecord::Base
     self.is_a?(WhiteboardSession) ? 4 : 1
   end
 
+  def current?
+    recruit.current_activity == self
+  end
+
   def finish!
     update_attributes!(:completed_at => Time.now)
   end
@@ -145,17 +149,21 @@ class Activity < ActiveRecord::Base
     SCHEDULABLE_ACTIVITIES.include?(self.class)
   end
 
-  def gets_feedback?
+  def requires_feedback?
     FEEDBACK_ACTIVITIES.include?(self.class)
   end
 
+  def received_score_from?(employee)
+    feedbacks.with_scores.from_employee(employee).exists?
+  end
+
   def has_all_feedback?
-    feedbacks.any? && employees.map(&:id) == feedbacks.map(&:employee_id).uniq
+    employees.map{|e| received_score_from?(e)}.all?
   end
 
   def ready_to_move_on?
     return false if needs_scheduling? && !scheduled?
-    return false if gets_feedback? && !has_all_feedback?
+    return false if requires_feedback? && !has_all_feedback?
     return true
   end
 
