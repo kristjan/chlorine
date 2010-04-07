@@ -9,13 +9,13 @@
         </div>
       </div>
       <div class="body short">
-        <%=h truncate(feedback.body, 500, nil) %>
+        <%= brize(truncate(feedback.body, 500, nil)) %>
           <% if feedback.body.length > 500 %>
             <%= link_to_function "&raquo;", "expandFeedback(this)", :class => 'more_link' %>
           <% end %>
       </div>
       <div class="body long">
-        <%=h feedback.body %>
+        <%= brize(feedback.body) %>
       </div>
     </li>
   <% end %>

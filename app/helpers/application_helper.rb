@@ -1,5 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def brize(s)
+    s.gsub("\n", "<br />")
+  end
+
   def hours_for_select
     [
       ["7am",  7],
