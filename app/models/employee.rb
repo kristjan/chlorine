@@ -1,4 +1,6 @@
 class Employee < ActiveRecord::Base
+  default_scope :order => :name
+
   has_many :employee_activities
   has_many :activities, :through => :employee_activities
 

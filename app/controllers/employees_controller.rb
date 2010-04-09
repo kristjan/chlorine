@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
 
   def index
-    @employees = Employee.all.sort_by(&:name)
+    @employees = Employee.all
 
     respond_to do |format|
       format.html
