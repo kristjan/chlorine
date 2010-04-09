@@ -1,7 +1,7 @@
 class Recruit < ActiveRecord::Base
-  has_many :feedbacks
-  has_many :activities, :order => 'created_at'
-  has_many :documents
+  has_many :feedbacks, :dependent => :destroy
+  has_many :activities, :order => 'created_at', :dependent => :destroy
+  has_many :documents, :dependent => :destroy
 
   validates_presence_of :name
 

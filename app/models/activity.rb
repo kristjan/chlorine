@@ -1,8 +1,8 @@
 class Activity < ActiveRecord::Base
   belongs_to :recruit
-  has_many :employee_activities
+  has_many :employee_activities, :dependent => :destroy
   has_many :employees, :through => :employee_activities
-  has_many :feedbacks
+  has_many :feedbacks, :dependent => :destroy
 
   validates_presence_of :recruit
   validates_presence_of :scheduled_date, :if => :scheduled_hour

@@ -1,0 +1,7 @@
+james_received:
+  type: Activity::Received
+  recruit: james
+
+james_phone_intro:
+  type: Activity::PhoneIntro
+  recruit: james
