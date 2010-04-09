@@ -1,3 +1,15 @@
 james_resume:
   recruit: james
-  filename: resume
+  filename: resume.pdg
+  content_type: application/pdf
+
+james_headshot:
+  recruit: james
+  filename: myface.jpg
+  content_type: image/jpg
+
+james_cover_letter:
+  recruit: james
+  filename: cover.txt
+  content_type: text/plain
+

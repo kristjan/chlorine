@@ -10,7 +10,7 @@ context Recruit, "When destroyed" do
   end
 
   it "destroys its documents" do
-    proc { recruits(:james).destroy }.should change(Document, :count).by(-1)
+    proc { recruits(:james).destroy }.should change(Document, :count).by(-3)
   end
 end
 
