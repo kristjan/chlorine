@@ -5,7 +5,7 @@ class Feedback < ActiveRecord::Base
 
   TIERS = [:awful, :bad, :neutral, :good, :awesome]
 
-  validates_presence_of :body, :activity, :recruit, :employee
+  validates_presence_of :summary, :activity, :recruit, :employee
   validates_numericality_of :score, :allow_nil => true,
     :greater_than_or_equal_to => -2, :less_than_or_equal_to => 2
 

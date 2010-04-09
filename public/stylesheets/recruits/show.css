@@ -226,18 +226,23 @@
   margin: 25px;
 }
 
-#feedback li .body {
-  margin-left: 120px;
+#feedback li h3 {
+  font-size: 1.25em;
 }
 
-#feedback li .long {
+#feedback li .body {
+  background: -moz-linear-gradient(top, #EFF8FC, #E6F0F4 20%);
+  background: -webkit-gradient(linear, center top, center bottom, from(#EFF8FC), color-stop(20%, #E6F0F4));
   display: none;
+  margin-left: 100px;
+  padding: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
 #feedback .more_link {
   display: inline-block;
-  font-size: 1.25em;
-  line-height: .85em;
+  font-size: .7em;
   padding: 0px 5px;
   text-decoration: none;
 }

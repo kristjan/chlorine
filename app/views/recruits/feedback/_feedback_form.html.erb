@@ -8,6 +8,10 @@
     <p>
       <%= f.text_area :body %>
     </p>
+    <p>
+      <%= f.label :summary %>
+      <%= f.text_field :summary %>
+    </p>
     <% if current_user.can_score?(activity) %>
       <p>
         <%= f.label :score %>

@@ -35,9 +35,8 @@ function expandToFeedback(activity_id, anchor) {
 }
 
 function expandFeedback(elem) {
-  $(elem).parent('.short').slideUp(400, function() {
-    $(elem).parent('.short').siblings('.long').slideDown();
-  });
+  $(elem).parent('h3').siblings('.body').slideDown();
+  $(elem).hide();
 }
 
 $(document).ready(set_up_recruits_show);

@@ -9,15 +9,15 @@
           <span class="score"><%= feedback.score || '&mdash;' %></span>
         </div>
       </div>
-      <div class="body short">
-        <%= brize(truncate(feedback.body, 500, nil)) %>
-          <% if feedback.body.length > 500 %>
-            <%= link_to_function "&raquo;", "expandFeedback(this)", :class => 'more_link' %>
-          <% end %>
-      </div>
-      <div class="body long">
-        <%= brize(feedback.body) %>
-      </div>
+      <h3>
+        <%= feedback.summary %>
+        <% unless feedback.body.blank? %>
+          <%= link_to_function "Details...", "expandFeedback(this)", :class => 'more_link' %>
+        <% end %>
+      </h3>
+      <% unless feedback.body.blank? %>
+        <div class="body"><%= brize(feedback.body) %></div>
+      <% end %>
     </li>
   <% end %>
 </ul>
