@@ -8,7 +8,7 @@
     </div>
     <h1>
       <%= link_to "Chlorine", root_path %>
-      <%= content_tag(:span, "&there4; #{@page_title}", :class => 'subpage') if @page_title %>
+      <%= content_tag(:div, "#{@page_title}", :class => 'subpage') if @page_title %>
     </h1>
     <h2>
       Keeping your pool clean
