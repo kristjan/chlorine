@@ -121,7 +121,7 @@
 
 #schedule {
   margin: 0px auto;
-  width: 700px;
+  width: 800px;
 }
 
 #activity {
@@ -222,7 +222,7 @@
   display: none;
 }
 
-#feedback li {
+#feedback ul li {
   margin: 25px;
 }
 
@@ -257,7 +257,30 @@
 }
 
 #feedback_form {
+  background-color: #C7EAFC;
   margin-top: 20px;
+  padding: 20px;
+}
+
+#feedback_form ol {
+  float: right;
+  width: 275px;
+}
+
+#feedback_form ol label {
+  width: auto;
+}
+
+#feedback_form ol label.disabled {
+  color: #999;
+}
+
+#feedback_form .score_field {
+  margin-left: 30px;
+}
+
+#feedback_form .score_field label {
+  width: auto;
 }
 
 #edit {

@@ -52,7 +52,7 @@ class Activity < ActiveRecord::Base
   NONTERMINAL_ACTIVITIES = ACTIVITY_ORDER - TERMINAL_ACTIVITIES
   SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,
                             CodingSession, TalkToJoe]
-  FEEDBACK_ACTIVITIES    = [PhoneScreen, WhiteboardSession, CodingSession, ReferenceCheck]
+  FEEDBACK_ACTIVITIES    = ACTIVITY_ORDER - TERMINAL_ACTIVITIES - [Offer]
 
   named_scope :in_process, :conditions => {
     :type => NONTERMINAL_ACTIVITIES.map(&:name),
@@ -169,6 +169,10 @@ class Activity < ActiveRecord::Base
 
   def terminal?
     TERMINAL_ACTIVITIES.include?(self.class)
+  end
+
+  def feedback_activities_left
+    FEEDBACK_ACTIVITIES[(FEEDBACK_ACTIVITIES.index(self.class)+1)..-1]
   end
 
   before_save do |activity|

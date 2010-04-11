@@ -1,9 +1,25 @@
 <div id="feedback_form">
-  <h2>Leave feedback about the  <%= activity.friendly_name %></h2>
+  <h2>Leave feedback</h2>
   <% form_for(@feedback) do |f| %>
     <%= f.hidden_field :recruit_id  %>
     <%= f.hidden_field :activity_id %>
     <%= f.hidden_field :employee_id %>
+
+    <ol class="select_activity">
+      <lh>This is for...</lh>
+      <% @recruit.activities.each do |activity| %>
+        <li>
+          <%= f.radio_button :activity_id, activity.id %>
+          <%= f.label "activity_id_#{activity.id}", activity.friendly_name %>
+        </li>
+      <% end %>
+      <% @recruit.current_activity.feedback_activities_left.each do |activity| %>
+        <li>
+          <%= f.radio_button :activity_id, activity.id, :disabled => true %>
+          <%= f.label :activity_id, activity.friendly_name, :class => "disabled" %>
+        </li>
+      <% end %>
+    </ol>
 
     <p>
       <%= f.text_area :body %>
@@ -11,13 +27,11 @@
     <p>
       <%= f.label :summary %>
       <%= f.text_field :summary %>
-    </p>
-    <% if current_user.can_score?(activity) %>
-      <p>
+      <span class="score_field">
         <%= f.label :score %>
-        <%= f.text_field :score %>
-      </p>
-    <% end %>
+        <%= f.text_field :score, :class => "small" %>
+      </span>
+    </p>
 
     <%= f.submit %>
   <% end %>

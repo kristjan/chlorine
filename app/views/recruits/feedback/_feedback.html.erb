@@ -1,4 +1,6 @@
 <div id="feedback" class="clearfix">
+  <%= render :partial => 'recruits/feedback/feedback_form',
+             :locals => {:activity => @recruit.current_activity} %>
   <% @recruit.activities.each do |activity| %>
     <% next unless activity.feedbacks.any? || activity.current? %>
     <div id="activity_<%= activity.id %>"
@@ -9,6 +11,4 @@
                  :locals => {:activity => activity} %>
     </div>
   <% end %>
-  <%= render :partial => 'recruits/feedback/feedback_form',
-             :locals => {:activity => @recruit.current_activity} %>
 </div>
