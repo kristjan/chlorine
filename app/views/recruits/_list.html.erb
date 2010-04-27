@@ -4,8 +4,7 @@
     <tr>
       <th>Name</th>
       <th>Stage</th>
-      <th>Email</th>
-      <th>Phone</th>
+      <th>Assigned To</th>
       <th>Next Scheduled</th>
       <th>Last Activity</th>
     </tr>
@@ -14,8 +13,7 @@
       <tr>
         <td><%= link_to h(recruit.name), recruit%></td>
         <td><%= recruit.current_activity.friendly_name %></td>
-        <td><%= mail_to recruit.email %></td>
-        <td><%= phone(recruit.phone) %></td>
+        <td><%= employees_assigned_to(recruit.current_activity) %></td>
         <td><%= format_time(recruit.current_activity.scheduled_time) %></td>
         <td><%= format_time(recruit.activities.map(&:updated_at).max) %></td>
       </tr>

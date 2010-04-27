@@ -7,6 +7,11 @@ module RecruitsHelper
     "&uarr; " + activity.friendly_name + " &uarr;"
   end
 
+  def employees_assigned_to(action)
+    names = action.employees.map(&:name).sort.join(',')
+    names.blank? ? '-' : names
+  end
+
   def employees_for_select_options(employees=nil)
     employees ||= Employee.all
     employees.map{|e| [e.name, e.id]}
