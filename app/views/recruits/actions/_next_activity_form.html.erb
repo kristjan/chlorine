@@ -1,8 +1,6 @@
-<% enabled = @recruit.current_activity.ready_to_move_on? %>
 <% next_activity = @recruit.next_activity %>
 <% form_tag(
      advance_recruit_path(:activity => next_activity.name_for_params),
                           :method => :put) do %>
-  <%= submit_tag advance_text(next_activity), :disabled => !enabled,
-                                              :class => "next_activity" %>
+  <%= submit_tag advance_text(next_activity), :class => "next_activity" %>
 <% end %>
