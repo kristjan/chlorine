@@ -19,14 +19,10 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
-  # taken from Advanced Rails Recipes
-  task :copy_database_configuration do
-    production_db_config = "#{deploy_to}/shared/production.database.yml"
-    facebooker_config = "#{deploy_to}/shared/facebooker.yml"
-    run "cp #{production_db_config} #{release_path}/config/database.yml"
-    run "cp #{facebooker_config} #{release_path}/config/facebooker.yml"
+  task :configure do
+    run "cp -r #{deploy_to}/shared/config/* #{release_path}/config/"
   end
-  after "deploy:update_code", "deploy:copy_database_configuration"
+  after "deploy:update_code", "deploy:configure"
 end
 
 
