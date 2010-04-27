@@ -8,16 +8,6 @@ class Activity < ActiveRecord::Base
   validates_presence_of :scheduled_date, :if => :scheduled_hour
   validates_presence_of :scheduled_hour, :if => :scheduled_date
 
-  validate :time_is_in_the_future
-  validate :number_of_people_assigned
-
-  def time_is_in_the_future
-    if scheduled_time && scheduled_time_changed? && scheduled_time.past?
-      errors.add(:scheduled_time,
-                 "must be in the future unless you're Arnold Schwarzenegger")
-    end
-  end
-
   def number_of_people_assigned
     if employee_ids_changed? && @employee_ids_to_save.any? && @employee_ids_to_save.size != employees_required
       errors.add(:employees, "are important, but you need to pick #{employees_required}")
