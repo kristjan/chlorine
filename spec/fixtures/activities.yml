@@ -1,5 +1,5 @@
-james_received:
-  type: Activity::Received
+james_new:
+  type: Activity::New
   recruit: james
 
 james_phone_intro:

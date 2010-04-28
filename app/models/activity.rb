@@ -14,12 +14,12 @@ class Activity < ActiveRecord::Base
     end
   end
 
-  class Received          < Activity; end
+  class New               < Activity; end
   class PhoneIntro        < Activity; end
   class PhoneScreen       < Activity; end
   class WhiteboardSession < Activity; end
   class CodingSession     < Activity; end
-  class TalkToJoe         < Activity; end
+  class MeetTheBoss       < Activity; end
   class ReferenceCheck    < Activity; end
   class Offer             < Activity; end
   class Hired             < Activity; end
@@ -27,12 +27,12 @@ class Activity < ActiveRecord::Base
   class Declined          < Activity; end
 
   ACTIVITY_ORDER = [
-    Received,
+    New,
     PhoneIntro,
     PhoneScreen,
     WhiteboardSession,
     CodingSession,
-    TalkToJoe,
+    MeetTheBoss,
     ReferenceCheck,
     Offer,
     Hired,
@@ -41,7 +41,7 @@ class Activity < ActiveRecord::Base
   TERMINAL_ACTIVITIES    = [Hired, Rejected, Declined]
   NONTERMINAL_ACTIVITIES = ACTIVITY_ORDER - TERMINAL_ACTIVITIES
   SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,
-                            CodingSession, TalkToJoe]
+                            CodingSession, MeetTheBoss]
   FEEDBACK_ACTIVITIES    = ACTIVITY_ORDER - TERMINAL_ACTIVITIES - [Offer]
 
   named_scope :in_process, :conditions => {

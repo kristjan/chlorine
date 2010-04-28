@@ -60,7 +60,7 @@ class Recruit < ActiveRecord::Base
   end
 
   after_create do |recruit|
-    Activity::Received.create!(:recruit => recruit)
+    Activity::New.create!(:recruit => recruit)
   end
 
   before_save do |recruit|
