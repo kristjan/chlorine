@@ -162,7 +162,8 @@ class Activity < ActiveRecord::Base
   end
 
   def feedback_activities_left
-    FEEDBACK_ACTIVITIES[(FEEDBACK_ACTIVITIES.index(self.class)+1)..-1]
+    index = FEEDBACK_ACTIVITIES.index(self.class)
+    index ? FEEDBACK_ACTIVITIES[(index+1)..-1] : []
   end
 
   before_save do |activity|

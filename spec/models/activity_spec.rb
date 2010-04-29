@@ -19,4 +19,8 @@ context Activity, "An activity" do
         Activity::FEEDBACK_ACTIVITIES[(i+1)..-1]
     end
   end
+
+  it "knows when there are no feedback activities after it" do
+    Activity::Offer.new.feedback_activities_left.should == []
+  end
 end
