@@ -1,9 +1,12 @@
 <% @page_title = @recruit.name %>
+<%= stylesheet_link_tag 'recruits/schedule' %>
+<%= stylesheet_link_tag 'recruits/feedback' %>
+<%= javascript_include_tag 'plugins/jquery.hint' %>
+<%= javascript_include_tag 'plugins/jquery.selectlist' %>
 <%= javascript_include_tag 'recruits/show' %>
+<%= javascript_include_tag 'recruits/schedule' %>
+
 
 <%= render :partial => 'recruits/files' %>
 <%= render :partial => 'recruits/info' %>
-<%= render :partial => 'recruits/actions' %>
-<%= render :partial => 'recruits/activity' %>
-<%= render :partial => 'recruits/feedback/feedback' %>
-<%= render :partial => 'edit' %>
+<%= render :partial => 'activity_tabs' %>

@@ -1,38 +1,30 @@
-<div id="feedback_form">
-  <h2>Leave feedback</h2>
-  <% form_for(@feedback) do |f| %>
+<div class="feedback_form clearfix">
+  <% form_for(new_feedback(activity)) do |f| %>
     <%= f.hidden_field :recruit_id  %>
     <%= f.hidden_field :activity_id %>
     <%= f.hidden_field :employee_id %>
 
-    <ol class="select_activity">
-      <lh>This is for...</lh>
-      <% @recruit.activities.each do |activity| %>
-        <li>
-          <%= f.radio_button :activity_id, activity.id %>
-          <%= f.label "activity_id_#{activity.id}", activity.friendly_name %>
-        </li>
-      <% end %>
-      <% @recruit.current_activity.feedback_activities_left.each do |activity| %>
-        <li>
-          <%= f.radio_button :activity_id, activity.id, :disabled => true %>
-          <%= f.label :activity_id, activity.friendly_name, :class => "disabled" %>
-        </li>
-      <% end %>
-    </ol>
-
+    <div class="guidelines">
+      <h3>Scoring Guidelines</h3>
+      <ul>
+        <li><strong>&nbsp;2</strong> - I will run through a PETA rally wearing fur if it means we can hire <%= @recruit.first_name %>.</li>
+        <li><strong>&nbsp;1</strong> - <%= @recruit.first_name %> is cool, I'm a solid yes.</li>
+        <li><strong>&nbsp;0</strong> - Who's <%= @recruit.first_name %>? I like beans.</li>
+        <li><strong>-1</strong> - I think hiring <%= @recruit.first_name %> is a Bad Idea™.</li>
+        <li><strong>-2</strong> - Working with <%= @recruit.first_name %> would make me profoundly and inconsolably unhappy.</li>
+      </ul>
+    </div>
     <p>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, :title => "What have you got to say?", :class => "hint" %>
     </p>
     <p>
-      <%= f.label :summary %>
-      <%= f.text_field :summary %>
+      <%= f.text_field :summary, :class => :hint, :title => "Say that again, but like you're talking to a cat." %>
       <span class="score_field">
         <%= f.label :score %>
         <%= f.text_field :score, :class => "small" %>
       </span>
     </p>
 
-    <%= f.submit %>
+    <%= f.submit "Give it to me straight" %>
   <% end %>
 </div>

@@ -1,0 +1,25 @@
+<% form_for(activity, :url => activity_path(activity), :method => :put,
+            :html => {:class => "schedule clearfix"}) do |f| %>
+  <%= f.label :scheduled_date, "Scheduled for" %>
+  <%= f.text_field :scheduled_date,
+        :value => ((activity.scheduled_date.strftime("%D") if activity.scheduled?)),
+        :class => 'datepicker', :default => activity.scheduled_date %>
+  <%= f.label :time, "at" %>
+  <%= f.select :scheduled_hour,
+               hours_for_select,
+               :name => activity.underscored_name + "[scheduled_hour]",
+               :include_blank => true %>
+  <%= f.label :assigned_employee_ids, "with" %>
+  <% fields_for :employee_ids do |ef| %>
+    <%= select_tag activity.underscored_name + '[employee_ids]',
+             options_for_select(
+               employees_for_select_options,
+               activity.employees.map(&:id)),
+             :include_blank => true,
+             :multiple => true,
+             :size => 1,
+             :class => "selectlist",
+             :title => "&hellip;" %>
+  <% end %>
+  <%= f.submit "Charter" %>
+<% end %>

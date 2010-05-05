@@ -1,6 +1,11 @@
 function doThings() {
   setNotab();
   runFlash();
+  hints();
+}
+
+function hints() {
+  $('.hint').hint();
 }
 
 function setNotab(){

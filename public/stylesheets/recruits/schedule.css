@@ -1,0 +1,54 @@
+form.schedule {
+  background-color: #C7EAFC;
+  font-size: 14px;
+  margin: 5px 0px;
+  padding: 10px 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+form.schedule input,
+form.schedule select {
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px;
+}
+form.schedule select {
+  width: auto;
+}
+form.schedule input[type="text"] {
+  width: 200px;
+}
+form.schedule input[type="submit"] {
+  background-color: #F0F0F0;
+  border: 1px solid #022865;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  height: 20px;
+  width: 75px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+form.schedule input[type="submit"]:hover {
+  background-color: #00AEEF;
+}
+form.schedule label {
+  margin: 0px;
+  width: auto;
+}
+form.schedule ul.selectlist-list,
+form.schedule ul.selectlist-list li {
+  display: inline-block !important;
+}
+form.schedule ul.selectlist-list {
+  width: 180px;
+}
+form.schedule ul.selectlist-list li {
+  margin: 0px 3px;
+}
+form.schedule ul.selectlist-list li:hover {
+  cursor: pointer;
+  color: #D00;
+  text-decoration: line-through;
+}

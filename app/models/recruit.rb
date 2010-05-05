@@ -39,6 +39,14 @@ class Recruit < ActiveRecord::Base
     by_state
   end
 
+  def activity(name)
+    activities.detect{|a| a.underscored_name == "activity_#{name.to_s}"}
+  end
+
+  def first_name
+    name.split.first
+  end
+
   def status
     if current_activity.terminal?
       current_activity.friendly_name

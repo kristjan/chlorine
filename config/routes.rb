@@ -6,7 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :feedbacks
   map.resources :recruits,
     :member => {
-      :advance  => :put,
+      :promote  => :put,
+      :demote   => :put,
       :reject   => :put,
       :decline  => :put,
     }

@@ -2,7 +2,7 @@ class RecruitsController < ApplicationController
   before_filter :set_recruit,
     :except => [:index, :new, :create, :destroy]
   before_filter :finish_current_activity,
-    :only => [:advance, :reject, :decline]
+    :only => [:promote, :reject, :decline]
 
   def index
     @recruits = Recruit.by_action_needed
@@ -14,11 +14,6 @@ class RecruitsController < ApplicationController
   end
 
   def show
-    feedback_params =
-      flash[:feedback] || {:recruit => @recruit,
-                           :activity => @recruit.current_activity,
-                           :employee => current_user}
-    @feedback = Feedback.new(feedback_params)
     respond_to do |format|
       format.html
       format.xml  { render :xml => @recruit }
@@ -77,10 +72,19 @@ class RecruitsController < ApplicationController
     end
   end
 
-  def advance
-    activity = Activity.from_param(params[:activity])
-    activity.create!(:recruit => @recruit)
+  def promote
+    @recruit.next_activity.create!(:recruit => @recruit)
     flash[:success] = "#{@recruit.name} has leveled up!"
+    redirect_to @recruit
+  end
+
+  def demote
+    if @recruit.current_activity.feedbacks.any?
+      flash[:failure] = "There's already feedback"
+    else
+      @recruit.current_activity.destroy
+      flash[:success] = "#{@recruit.name} got kicked down a notch!"
+    end
     redirect_to @recruit
   end
 

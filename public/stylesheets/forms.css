@@ -61,7 +61,7 @@ form input[type=submit].massive_button {
   background-repeat: no-repeat;
   color: #F0F0F0;
   border: none;
-  font-size: 1.5em;
+  font-size: 30px;
   float: right;
   margin: 10px;
   height: 180px;
@@ -87,4 +87,9 @@ form .fieldWithErrors input {
 form .fieldWithErrors input:hover {
   background-color: #FEE;
   border: 1px solid #F88;
+}
+
+form input.blur,
+form textarea.blur {
+  color: #999;
 }

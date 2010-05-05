@@ -1,0 +1,14 @@
+<% if activity.nil? %>
+  <p class="empty">
+    <%= @recruit.first_name %> has not made it to this round yet.
+  </p>
+<% else %>
+  <%= render :partial => "recruits/activity_tabs/header",
+             :locals => {:activity => activity} %>
+  <div class="tab_content">
+    <%= render :partial => "schedule_activity",
+               :locals => {:activity => activity} %>
+    <%= render :partial => "recruits/feedback/feedback",
+               :locals => {:activity => activity} %>
+  </div>
+<% end %>

@@ -1,0 +1,165 @@
+#feedback {
+  margin: 20px 0px;
+}
+
+#feedback .dots {
+  display: block;
+  float: right;
+  margin-left: 10px;
+}
+
+#feedback .dot {
+  border: 1px solid;
+  border-width: 1px 2px 4px;
+  display: inline-block;
+  height: 20px;
+  margin-bottom: 5px;
+  width: 20px;
+  -moz-border-radius: 25px 20px 25px 3px;
+  -webkit-border-radius: 25px 20px 25px 3px;
+}
+
+#feedback .name_and_score {
+  border: 3px solid;
+  float: left;
+  height: 60px;
+  margin: 0px 10px 10px;
+  padding: 10px;
+  text-align: center;
+  width: 60px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+#feedback .name {
+  font-size: 16px;
+  font-variant: small-caps;
+}
+
+#feedback .awesome {
+  background-color: #0D0;
+  border-color: #090;
+}
+#feedback .good {
+  background-color: #5C5;
+  border-color: #050;
+}
+#feedback .neutral {
+  background-color: #DD9;
+  border-color: #990;
+}
+#feedback .bad {
+  background-color: #D55;
+  border-color: #500;
+}
+#feedback .awful {
+  background-color: #D00;
+  border-color: #900;
+}
+
+#feedback .score {
+  display: block;
+  padding: 5px 0px 0px;
+}
+
+#feedback ul.list li {
+  margin: 25px;
+}
+
+#feedback li .body {
+  background: -moz-linear-gradient(top, #EFF8FC, #E6F0F4 20%);
+  background: -webkit-gradient(linear, center top, center bottom, from(#EFF8FC), color-stop(20%, #E6F0F4));
+  display: none;
+  margin-left: 100px;
+  padding: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+#feedback .more_link {
+  display: inline-block;
+  color: #3875D7;
+  font-size: 11px;
+  padding: 0px 5px;
+  text-decoration: none;
+}
+
+#feedback .tree_expand a {
+  color: #666;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  width: 15px;
+}
+
+.feedback_form {
+  background-color: #C7EAFC;
+  margin-top: 20px;
+  padding: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.feedback_form form {
+  font-size: 14px;
+}
+
+.feedback_form textarea,
+.feedback_form input[type="text"] {
+  width: 555px;
+}
+
+.feedback_form input[type="submit"] {
+  background-color: #F0F0F0;
+  border: 1px solid #022865;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  height: 30px;
+  margin-left: 600px;
+  padding-bottom: 2px;
+  width: auto;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+.feedback_form input[type="submit"]:hover {
+  background-color: #00AEEF;
+}
+
+.feedback_form .guidelines {
+  background-color: #DDFFDD;
+  border: 1px solid #BBDDBB;
+  color: #777;
+  float: right;
+  height: 200px;
+  padding: 5px;
+  width: 200px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.feedback_form .guidelines h3 {
+  text-align: center;
+}
+
+.feedback_form .guidelines ul {
+  list-style: disc;
+}
+
+.feedback_form .guidelines ul li {
+  margin: 3px;
+}
+
+.feedback_form .score_field {
+  margin-left: 30px;
+}
+
+.feedback_form .score_field input {
+  width: 40px;
+}
+
+.feedback_form .score_field label {
+  width: auto;
+}

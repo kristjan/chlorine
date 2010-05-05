@@ -1,9 +1,21 @@
 function set_up_recruits_show() {
-  $('#datepicker').datepicker();
-  $('#datepicker').datepicker('option', 'showAnim', 'slideDown');
-  $('#datepicker').datepicker('option', 'defaultDate', DEFAULT_DATE);
-  $('#datepicker').datepicker('option', 'dateFormat', 'M d, yy (DD)');
-  expandActivity($('.current_activity').find('.tree_expand a'));
+  set_up_tabs();
+  set_up_datepicker();
+}
+
+function set_up_tabs() {
+  $('#activity_tabs').tabs();
+  $('#activity_tabs').tabs('select', SELECTED_TAB);
+}
+
+function set_up_datepicker() {
+  $('.datepicker').datepicker();
+  $('.datepicker').datepicker('option', 'showAnim', 'slideDown');
+  $('.datepicker').each(function() {
+    var default_date = new Date($(this).attr('default'));
+    $(this).datepicker('option', 'defaultDate', default_date);
+  });
+  $('.datepicker').datepicker('option', 'dateFormat', 'M d, yy (DD)');
 }
 
 function expandActivity(elem, callback) {

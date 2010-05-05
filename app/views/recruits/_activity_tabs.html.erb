@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag 'recruits/activity_tabs' %>
+<div id="activity_tabs">
+  <ul>
+    <% Activity::NONTERMINAL_ACTIVITIES.each do |activity| %>
+      <li><a href="#<%= tab_id(activity) %>"><%= activity.friendly_name %></a></li>
+    <% end %>
+  </ul>
+  <script type="text/javascript">
+    SELECTED_TAB = "#<%= tab_id(@recruit.current_activity) %>"
+  </script>
+  <% Activity::NONTERMINAL_ACTIVITIES.each do |activity| %>
+    <div id="<%= tab_id(activity) %>">
+      <%= render :partial => tab_partial(activity) %>
+    </div>
+  <% end %>
+</div>

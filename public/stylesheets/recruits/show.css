@@ -1,5 +1,4 @@
 #info {
-  border-bottom: 1px solid #AAC;
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -43,39 +42,6 @@
   margin: 50px;
 }
 
-#actions form {
-  font-size: 1em;
-}
-
-#actions form input[type=submit] {
-  background-color: #F0F0F0;
-  border: 1px solid;
-  color: #333;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 12px;
-  height: 30px;
-  padding: 3px;
-  width: 160px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-}
-#actions form input[type=submit][disabled] {
-  border-color: #999;
-  color: #999;
-  cursor: default;
-}
-#actions form input[type=submit][disabled]:hover {
-  background-color: #F0F0F0;
-}
-
-#actions #schedule input[type="submit"] {
-  border-color: #022865;
-}
-#actions #schedule input[type="submit"]:hover {
-  background-color: #00AEEF;
-}
-
 #actions .buttons .next_activity {
   border-color: #060;
 }
@@ -95,35 +61,6 @@
   background-color: #999;
 }
 
-#actions form label {
-  text-align: right;
-  vertical-align: top;
-  width: 4.5em;
-}
-
-#actions form p {
-  float: left;
-  margin-right: 5px;
-}
-
-#actions .buttons {
-  margin: 5px auto 10px;
-  width: 500px;
-}
-
-#actions .buttons form {
-  float: left;
-}
-
-#actions .small_form {
-  display: block;
-}
-
-#schedule {
-  margin: 0px auto;
-  width: 800px;
-}
-
 #activity {
   margin: 10px 192px 50px;
 }
@@ -141,150 +78,4 @@
 #activity td.activity_name {
   font-variant: small-caps;
   text-align: left;
-}
-
-#feedback {
-  margin: 20px 0px;
-}
-
-#feedback h1 {
-  color: #333;
-  font-size: 1.5em;
-  padding: 10px 0px;
-}
-
-#feedback h2 {
-  color: #333;
-  font-size: 1.3em;
-}
-
-#feedback .dots {
-  display: block;
-  float: right;
-  margin-left: 10px;
-}
-
-#feedback .dot {
-  border: 1px solid;
-  border-width: 1px 2px 4px;
-  display: inline-block;
-  height: 20px;
-  margin-bottom: 5px;
-  width: 20px;
-  -moz-border-radius: 25px 20px 25px 3px;
-  -webkit-border-radius: 25px 20px 25px 3px;
-}
-
-#feedback .name_and_score {
-  border: 3px solid;
-  float: left;
-  height: 60px;
-  margin: 0px 10px 10px;
-  padding: 10px;
-  text-align: center;
-  width: 60px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-}
-
-#feedback .name {
-  font-variant: small-caps;
-}
-
-#feedback .awesome {
-  background-color: #0D0;
-  border-color: #090;
-}
-#feedback .good {
-  background-color: #5C5;
-  border-color: #050;
-}
-#feedback .neutral {
-  background-color: #DD9;
-  border-color: #990;
-}
-#feedback .bad {
-  background-color: #D55;
-  border-color: #500;
-}
-#feedback .awful {
-  background-color: #D00;
-  border-color: #900;
-}
-
-#feedback .score {
-  display: block;
-  padding: 5px 0px 0px;
-  font-size: 2em;
-}
-
-#feedback ul {
-  display: none;
-}
-
-#feedback ul li {
-  margin: 25px;
-}
-
-#feedback li h3 {
-  font-size: 1.25em;
-}
-
-#feedback li .body {
-  background: -moz-linear-gradient(top, #EFF8FC, #E6F0F4 20%);
-  background: -webkit-gradient(linear, center top, center bottom, from(#EFF8FC), color-stop(20%, #E6F0F4));
-  display: none;
-  margin-left: 100px;
-  padding: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-}
-
-#feedback .more_link {
-  display: inline-block;
-  font-size: .7em;
-  padding: 0px 5px;
-  text-decoration: none;
-}
-
-#feedback .tree_expand a {
-  color: #666;
-  display: inline-block;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  width: 15px;
-}
-
-#feedback_form {
-  background-color: #C7EAFC;
-  margin-top: 20px;
-  padding: 20px;
-}
-
-#feedback_form ol {
-  float: right;
-  width: 275px;
-}
-
-#feedback_form ol label {
-  width: auto;
-}
-
-#feedback_form ol label.disabled {
-  color: #999;
-}
-
-#feedback_form .score_field {
-  margin-left: 30px;
-}
-
-#feedback_form .score_field label {
-  width: auto;
-}
-
-#edit {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
 }

@@ -78,6 +78,16 @@ ul, li {
   -webkit-border-radius: 20px;
 }
 
+.empty {
+  background-color: #33BBC8;
+  color: #EEE;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
 /* Fix for Firefox giving this div height when it's hidden */
 #ui-datepicker-div {
   display: none;

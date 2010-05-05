@@ -1,6 +1,6 @@
 <% @page_title = h(@recruit.name) %>
 <div id="info" class="clearfix">
-  <h2><%= @recruit.status %></h2>
+  <h2><%= @recruit.name %></h2>
   <h3>Last Updated: <%= format_time(@recruit.activities.map(&:updated_at).max) %></h3>
   <p>
     <%= auto_link @recruit.email %><br />

@@ -1,0 +1,47 @@
+#activity_tabs ul {
+  font-size: 12px;
+}
+
+#activity_tabs .tab_header {
+  height: 30px;
+  margin: 5px 0px 10px;
+  width: 100%;
+}
+
+#activity_tabs .tab_header a {
+  color: #EFEFEF;
+  display: block-inline;
+  font-size: 13px;
+  height: 50px;
+  overflow: visible;
+  padding-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  width: 107px;
+}
+
+#activity_tabs .tab_header a.promote {
+  background-image: url('/images/green_arrow_right_sm.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  float: right;
+  margin-right: -25px;
+  padding-right: 10px;
+}
+
+#activity_tabs .tab_header a.demote {
+  background-image: url('/images/red_arrow_left_sm.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  float: left;
+  margin-left: -25px;
+  padding-left: 10px;
+}
+
+.tab_content {
+  padding: 10px 20px;
+}
+
+#activity_tabs .ui-tabs-panel {
+  padding: 0px;
+}

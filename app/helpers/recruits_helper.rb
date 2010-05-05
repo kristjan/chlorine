@@ -3,8 +3,12 @@ module RecruitsHelper
     activity.scheduled? ? "Reschedule" : "Schedule"
   end
 
-  def advance_text(activity)
-    "&uarr; " + activity.friendly_name + " &uarr;"
+  def promote_text(activity)
+     "Promote"
+  end
+
+  def demote_text(activity)
+     "Demote"
   end
 
   def employees_assigned_to(action)
@@ -45,7 +49,31 @@ module RecruitsHelper
     image_tag chart_url, :title => mean.round(2)
   end
 
+  def new_feedback(activity)
+    Feedback.new(:activity => activity,
+                 :recruit => activity.recruit,
+                 :employee => current_user)
+  end
+
   def positions_for_select
     Recruit::POSITIONS.map{|p| [p, p]}
   end
+
+  def tab_id(activity)
+    "tab_#{tab_name(activity)}"
+  end
+
+  def tab_partial(activity)
+    "recruits/activity_tabs/#{tab_name(activity)}"
+  end
+
+  def assigned_employee_names(activity)
+    activity.employees.map(&:name).join(', ')
+  end
+private
+
+  def tab_name(activity)
+    activity.underscored_name.sub('activity_', '')
+  end
+
 end

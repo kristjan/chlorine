@@ -54,6 +54,11 @@ class Activity < ActiveRecord::Base
     ACTIVITY_ORDER[ACTIVITY_ORDER.index(activity.class) + 1]
   end
 
+  def self.previous(activity)
+    return nil if activity.is_a?(New)
+    ACTIVITY_ORDER[ACTIVITY_ORDER.index(activity.class) - 1]
+  end
+
   def self.friendly_name
     self.name.split("::").last.underscore.titleize
   end
@@ -87,6 +92,10 @@ class Activity < ActiveRecord::Base
   def unassign!(employee)
     employee = Employee.find(employee) if employee.is_a?(Fixnum)
     employees.delete employee
+  end
+
+  def current?
+    self == recruit.current_activity
   end
 
   def scheduled_time

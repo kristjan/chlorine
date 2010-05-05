@@ -1,0 +1,10 @@
+<div class="tab_header clearfix">
+  <% if activity.current? %>
+    <% unless activity.feedbacks.any? %>
+      <%= link_to demote_text(activity), demote_recruit_url,
+                  :method => :put, :class => "demote" %>
+    <% end %>
+    <%= link_to promote_text(activity), promote_recruit_url,
+                :method => :put, :class => "promote" %>
+  <% end %>
+</div>

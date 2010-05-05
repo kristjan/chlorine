@@ -4,6 +4,10 @@ class Employee < ActiveRecord::Base
   has_many :employee_activities
   has_many :activities, :through => :employee_activities
 
+  def self.name_id_pairs
+    Employee.all.map{|e| [e.name, e.id]}
+  end
+
   def can_leave_feedback_for?(recruit)
     activity = recruit.current_activity
     return false unless activity.requires_feedback?
