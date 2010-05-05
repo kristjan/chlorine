@@ -4,6 +4,18 @@ module ApplicationHelper
     s.gsub("\n", "<br />")
   end
 
+  def days_ago(time)
+    Date.today - time.to_date
+  end
+
+  def days_ago_class(time)
+    case days_ago(time)
+    when 0...1: 'fresh'
+    when 2...5: 'stale'
+    else 'old'
+    end
+  end
+
   def hours_for_select
     [
       ["7am",  7],
