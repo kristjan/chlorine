@@ -1,9 +1,15 @@
-<div id="feedback" class="clearfix">
-  <%= render :partial => 'recruits/feedback/feedback_form',
-             :locals => {:activity => activity} %>
-  <div id="activity_<%= activity.id %>"
-    class="activity <%= 'current_activity' if activity.current? %>">
-    <%= render :partial => 'recruits/feedback/list',
+<% if activity.employees.size < activity.employees_required %>
+  <p class="empty">
+    Assign <%= pluralize(activity.employees_required, 'person') %> to this round so they can start leaving feedback!
+  </p>
+<% else %>
+  <div id="feedback" class="clearfix">
+    <%= render :partial => 'recruits/feedback/feedback_form',
                :locals => {:activity => activity} %>
+    <div id="activity_<%= activity.id %>"
+      class="activity <%= 'current_activity' if activity.current? %>">
+      <%= render :partial => 'recruits/feedback/list',
+                 :locals => {:activity => activity} %>
+    </div>
   </div>
-</div>
+<% end %>
