@@ -1,0 +1,13 @@
+.documents ul {
+  font-size: 16px;
+  margin: -10px 25px 10px 25px;
+}
+
+.documents ul li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.documents form {
+  font-size: 14px;
+}

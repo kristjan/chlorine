@@ -1,6 +1,6 @@
 <div class="tab_header clearfix">
   <% if activity.current? %>
-    <% unless activity.feedbacks.any? %>
+    <% unless activity.feedbacks.any? || activity.is_a?(Activity::New) %>
       <%= link_to demote_text(activity), demote_recruit_url,
                   :method => :put, :class => "demote" %>
     <% end %>

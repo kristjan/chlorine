@@ -1,1 +1,25 @@
-This is the New tab
+<div class="tab_content">
+  <%= render :partial => "recruits/activity_tabs/header",
+             :locals => {:activity => @recruit.activity(:new)} %>
+  <div class="new_tab_content">
+    <% unless @recruit.position.blank? %>
+      <p>
+      <%= @recruit.first_name %> wants to be a <%= @recruit.position %>.
+      </p>
+    <% end %>
+    <% unless @recruit.referrer.blank? %>
+      <p>
+        <%= @recruit.first_name %> knows us through <%= @recruit.referrer %>.
+      </p>
+    <% end %>
+    <% unless @recruit.how_found.blank? %>
+      <p>
+        "How did we find <%= @recruit.first_name %>?", you may ask.
+        <blockquote>
+          <%= @recruit.how_found %>.
+        </blockquote>
+      </p>
+    <% end %>
+    <%= render :partial => 'files' %>
+  </div>
+</div>

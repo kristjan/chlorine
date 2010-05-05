@@ -42,6 +42,14 @@
   padding: 10px 20px;
 }
 
+.new_tab_content {
+  background-color: #C7EAFC;
+  margin: 0px;
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
 #activity_tabs .ui-tabs-panel {
   padding: 0px;
 }

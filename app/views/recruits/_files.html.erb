@@ -1,14 +1,17 @@
-<div id="documents">
+<div class="documents">
   <% if @recruit.documents.any? %>
+    <%= @recruit.first_name %> sent us some things.
     <ul>
       <% @recruit.documents.each do |doc| %>
         <li><%= link_to doc.filename, doc %></li>
       <% end %>
     </ul>
+  <% end %>
+  Did <%= @recruit.first_name %> send
+  <% if @recruit.documents.empty? %>
+    a r&eacute;sum&eacute;?
   <% else %>
-    <p class="no_files">
-      No files! Have you got that r&eacute;sum&eacute; lying around somewhere?
-    </p>
+    anything else?
   <% end %>
   <% form_for(:document, :url => documents_path, :html => {:multipart => true}) do |f| %>
     <%= f.hidden_field :recruit_id, :value => @recruit.id %>

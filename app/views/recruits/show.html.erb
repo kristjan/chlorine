@@ -1,12 +1,24 @@
 <% @page_title = @recruit.name %>
 <%= stylesheet_link_tag 'recruits/schedule' %>
 <%= stylesheet_link_tag 'recruits/feedback' %>
+<%= stylesheet_link_tag 'recruits/documents' %>
 <%= javascript_include_tag 'plugins/jquery.hint' %>
 <%= javascript_include_tag 'plugins/jquery.selectlist' %>
 <%= javascript_include_tag 'recruits/show' %>
 <%= javascript_include_tag 'recruits/schedule' %>
 
+<div id="info" class="clearfix">
+  <h2><%= @recruit.name %></h2>
+  <h3>Last Updated: <%= format_time(@recruit.activities.map(&:updated_at).max) %></h3>
+  <p>
+    <%= auto_link @recruit.email %><br />
+    <%= phone(@recruit.phone) %><br />
+  </p>
+  <p>
+    Wants to be a <b><%= @recruit.position %></b> when they grow up.<br />
+    <b>Referrer:</b> <%=h @recruit.referrer %><br />
+    <b>How we found them:</b> <%=h @recruit.how_found %><br />
+  </p>
+</div>
 
-<%= render :partial => 'recruits/files' %>
-<%= render :partial => 'recruits/info' %>
 <%= render :partial => 'activity_tabs' %>
