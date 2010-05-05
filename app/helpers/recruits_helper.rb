@@ -55,6 +55,15 @@ module RecruitsHelper
                  :employee => current_user)
   end
 
+  def lifeguard(activity)
+    if activity.employees_required == 0 ||
+      !activity.has_all_feedback?
+      "The lifeguard is off duty."
+    else
+      "The lifeguard says: #{Feedback.rules_tier(activity.feedbacks)}"
+    end
+  end
+
   def positions_for_select
     Recruit::POSITIONS.map{|p| [p, p]}
   end

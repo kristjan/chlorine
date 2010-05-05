@@ -8,6 +8,12 @@
   width: 100%;
 }
 
+#activity_tabs .lifeguard {
+  margin: 0px auto;
+  padding: 10px;
+  text-align: center;
+}
+
 #activity_tabs .tab_header a {
   color: #EFEFEF;
   display: block-inline;

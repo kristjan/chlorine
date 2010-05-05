@@ -157,7 +157,7 @@ class Activity < ActiveRecord::Base
   end
 
   def has_all_feedback?
-    employees.map{|e| received_score_from?(e)}.all?
+    employees.any? && employees.map{|e| received_score_from?(e)}.all?
   end
 
   def ready_to_move_on?

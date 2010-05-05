@@ -1,6 +1,6 @@
+<%= render :partial => "recruits/activity_tabs/header",
+           :locals => {:activity => @recruit.activity(:new)} %>
 <div class="tab_content">
-  <%= render :partial => "recruits/activity_tabs/header",
-             :locals => {:activity => @recruit.activity(:new)} %>
   <div class="new_tab_content">
     <% unless @recruit.position.blank? %>
       <p>
