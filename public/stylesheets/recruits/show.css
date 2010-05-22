@@ -45,30 +45,21 @@
   width: auto;
 }
 
-#info .actions .action {
-  color: #000;
-  display: block;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  width: 150px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+.hire {
+  background-color: #4D4;
 }
-#info .actions a.action {
-  cursor: pointer;
+a.hire:hover {
+  background-color: #0D0;
 }
-
-#info .actions .reject {
+.reject {
   background-color: #D44;
 }
-#info .actions a.reject:hover {
+a.reject:hover {
   background-color: #D22;
 }
-#info .actions .decline {
+.decline {
   background-color: #88D;
 }
-#info .actions a.decline:hover {
+a.decline:hover {
   background-color: #66D;
 }

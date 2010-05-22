@@ -1,1 +1,24 @@
-This is the offer tab
+<%- activity = @recruit.activity(:offer) -%>
+<% if activity.nil? %>
+  <p class="empty">
+    <%= @recruit.first_name %> has not made it to this round yet.
+  </p>
+<% else %>
+  <div class="offer_tab_content">
+  <h1>We made <%= @recruit.first_name %> an offer!</h1>
+    <% if @recruit.hired? %>
+      <div class="button hire">
+        And <%= @recruit.first_name %> said yes :)
+      </div>
+    <% elsif @recruit.declined? %>
+      <div class="button decline">
+        But <%= @recruit.first_name %> declined :(
+      </div>
+    <% else %>
+      <%= link_to "And #{@recruit.first_name} said yes :)", promote_recruit_url(@recruit),
+            :method => :put, :class => "button hire" %>
+      <%= link_to "But #{@recruit.first_name} declined :(", decline_recruit_url(@recruit),
+            :method => :put, :class => "button decline" %>
+    <% end %>
+  </div>
+<% end %>

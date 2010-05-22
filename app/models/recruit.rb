@@ -42,6 +42,9 @@ class Recruit < ActiveRecord::Base
   def promote!
     next_activity.create!(:recruit => self)
   end
+  def hired?
+    Activity::Hired.exists?(:recruit_id => self.id)
+  end
 
   def demote!
     current_activity.destroy
