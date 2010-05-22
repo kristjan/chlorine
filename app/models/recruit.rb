@@ -40,7 +40,7 @@ class Recruit < ActiveRecord::Base
   end
 
   def promote!
-    next_activity.create!(:recruit => @recruit)
+    next_activity.create!(:recruit => self)
   end
 
   def demote!
