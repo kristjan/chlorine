@@ -89,17 +89,13 @@ class RecruitsController < ApplicationController
   end
 
   def reject
-    Activity::Rejected.create!(
-      :recruit => @recruit,
-      :completed_at => Time.now)
+    @recruit.reject!
     flash[:failure] = "#{@recruit.name}'s spoon was just too big."
     redirect_to @recruit
   end
 
   def decline
-    Activity::Declined.create!(
-      :recruit => @recruit,
-      :completed_at => Time.now)
+    @recruit.decline!
     flash[:failure] = "It was probably something you said."
     redirect_to @recruit
   end

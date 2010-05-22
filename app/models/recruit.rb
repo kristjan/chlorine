@@ -49,6 +49,26 @@ class Recruit < ActiveRecord::Base
     current_activity.update_attributes(:completed_at => nil)
   end
 
+  def reject!
+    return if rejected?
+    Activity::Rejected.create!(
+      :recruit => self,
+      :completed_at => Time.now)
+  end
+  def rejected?
+    Activity::Rejected.exists?(:recruit_id => self.id)
+  end
+
+  def decline!
+    return if declined?
+    Activity::Declined.create!(
+      :recruit => self,
+      :completed_at => Time.now)
+  end
+  def declined?
+    Activity::Declined.exists?(:recruit_id => self.id)
+  end
+
   def activity(name)
     activities.detect{|a| a.underscored_name == "activity_#{name.to_s}"}
   end

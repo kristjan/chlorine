@@ -3,18 +3,25 @@
 }
 
 #info h2 {
-  display: inline;
-  font-size: 20px;
+  font-size: 30px;
   font-variant: small-caps;
 }
 
-#info p {
+#info > div {
+  float: left;
   font-weight: normal;
-  margin: 10px 0px;
+  width: 300px;
 }
 
 #info .freshness {
-  padding: 3px 5px;
+  text-align: center;
+}
+
+#info .freshness div {
+  margin: 10px auto;
+  padding: 5px;
+  text-align: center;
+  width: 150px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
@@ -30,4 +37,38 @@
 #info .old {
   background-color: #D00;
   border: 1px solid #A00;
+  color: #EEE;
+}
+
+#info .actions {
+  float: right;
+  width: auto;
+}
+
+#info .actions .action {
+  color: #000;
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#info .actions a.action {
+  cursor: pointer;
+}
+
+#info .actions .reject {
+  background-color: #D44;
+}
+#info .actions a.reject:hover {
+  background-color: #D22;
+}
+#info .actions .decline {
+  background-color: #88D;
+}
+#info .actions a.decline:hover {
+  background-color: #66D;
 }
