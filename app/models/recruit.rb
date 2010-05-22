@@ -39,6 +39,16 @@ class Recruit < ActiveRecord::Base
     by_state
   end
 
+  def promote!
+    next_activity.create!(:recruit => @recruit)
+  end
+
+  def demote!
+    current_activity.destroy
+    refresh_current_activity
+    current_activity.update_attributes(:completed_at => nil)
+  end
+
   def activity(name)
     activities.detect{|a| a.underscored_name == "activity_#{name.to_s}"}
   end
@@ -60,7 +70,10 @@ class Recruit < ActiveRecord::Base
   end
 
   def current_activity
-    @current_activity ||= activities.last(:order => :created_at)
+    @current_activity ||= activities.last
+  end
+  def refresh_current_activity
+    @current_activity = activities.last
   end
 
   def next_activity

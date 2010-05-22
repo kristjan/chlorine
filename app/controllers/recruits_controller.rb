@@ -73,7 +73,7 @@ class RecruitsController < ApplicationController
   end
 
   def promote
-    @recruit.next_activity.create!(:recruit => @recruit)
+    @recruit.promote!
     flash[:success] = "#{@recruit.name} has leveled up!"
     redirect_to @recruit
   end
@@ -82,7 +82,7 @@ class RecruitsController < ApplicationController
     if @recruit.current_activity.feedbacks.any?
       flash[:failure] = "There's already feedback"
     else
-      @recruit.current_activity.destroy
+      @recruit.demote!
       flash[:success] = "#{@recruit.name} got kicked down a notch!"
     end
     redirect_to @recruit

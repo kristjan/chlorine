@@ -1,6 +1,7 @@
 james_new:
   type: Activity::New
   recruit: james
+  completed_at: <%= 1.hour.ago %>
 
 james_phone_intro:
   type: Activity::PhoneIntro
