@@ -148,6 +148,20 @@ a.button {
   cursor: pointer;
 }
 
+.sort_data {
+  display: none;
+}
+
+.fresh {
+  background-color: #CFC !important;
+}
+.stale {
+  background-color: #FFC !important;
+}
+.old {
+  background-color: #FCC !important;
+}
+
 .clearfix:after {
   clear: both;
   content: ".";

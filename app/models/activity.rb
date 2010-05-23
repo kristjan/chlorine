@@ -38,6 +38,7 @@ class Activity < ActiveRecord::Base
     Hired,
   ]
 
+  ACTIVITIES = ACTIVITY_ORDER
   TERMINAL_ACTIVITIES    = [Hired, Rejected, Declined]
   NONTERMINAL_ACTIVITIES = ACTIVITY_ORDER - TERMINAL_ACTIVITIES
   SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,

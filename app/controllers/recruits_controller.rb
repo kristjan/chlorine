@@ -5,7 +5,7 @@ class RecruitsController < ApplicationController
     :only => [:promote, :reject, :decline]
 
   def index
-    @recruits = Recruit.by_action_needed
+    @recruits = Recruit.all
 
     respond_to do |format|
       format.html

@@ -1,6 +1,7 @@
+<%= stylesheet_link_tag 'tablesorter' %>
+<%= javascript_include_tag 'plugins/jquery.tablesorter' %>
+<%= javascript_include_tag 'recruits/index' %>
+
 <% @page_title = "Recruits" %>
-  <% [:confused, :scheduling, :decision, :upcoming].each do |state| %>
-    <%= render :partial => 'list',
-               :locals => {:state => state, :recruits => @recruits[state]} %>
-  <% end %>
+  <%= render :partial => 'list', :locals => {:recruits => @recruits} %>
 </table>
