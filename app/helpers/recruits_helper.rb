@@ -19,7 +19,10 @@ module RecruitsHelper
   end
 
   def assigned_to_sort_data(activity)
-    employees_assigned_to(activity).include?(current_user.name) ? 0 : 1
+    names = employees_assigned_to(activity)
+    return 0 if names.include?(current_user.name)
+    return 2 if names == '-'
+    return 1
   end
 
   def employees_for_select_options(employees=nil)
