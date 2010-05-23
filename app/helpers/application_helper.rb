@@ -10,8 +10,8 @@ module ApplicationHelper
 
   def days_ago_class(time)
     case days_ago(time)
-    when 0...2: 'fresh'
-    when 3...5: 'stale'
+    when 0..2: 'fresh'
+    when 3..5: 'stale'
     else 'old'
     end
   end
