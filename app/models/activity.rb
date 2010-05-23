@@ -121,7 +121,7 @@ class Activity < ActiveRecord::Base
   end
 
   def pipeline_stage
-    case self.class
+    case self
       when New: :new
       when Hired: :hired
       when Rejected: :rejected
