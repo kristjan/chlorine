@@ -64,12 +64,6 @@
   margin: 10px auto;
   width: 300px;
 }
-.offer_tab_content .hire {
-  background-color: #4D4;
-}
-.offer_tab_content a.hire:hover {
-  background-color: #0D0;
-}
 
 #activity_tabs .ui-tabs-panel {
   padding: 0px;
