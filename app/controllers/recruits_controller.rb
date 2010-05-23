@@ -6,6 +6,9 @@ class RecruitsController < ApplicationController
 
   def index
     @recruits = Recruit.all
+    @recruits_by_stage = @recruits.group_by do |r|
+      r.current_activity.pipeline_stage
+    end
 
     respond_to do |format|
       format.html

@@ -120,6 +120,17 @@ class Activity < ActiveRecord::Base
     @employee_ids_to_save && @employee_ids_to_save.sort != employee_ids.sort
   end
 
+  def pipeline_stage
+    case self.class
+      when New: :new
+      when Hired: :hired
+      when Rejected: :rejected
+      when Declined: :declined
+      else
+        :in_process
+    end
+  end
+
   def reassign_employees
     Rails.logger.info "Saving employees"
     to_create = @employee_ids_to_save - employee_ids

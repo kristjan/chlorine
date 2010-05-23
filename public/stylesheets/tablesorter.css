@@ -37,6 +37,6 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 background-color: #8dbdd8;
 }
 table.tablesorter .hover {
-  background-color: #8DD9F8 !important;
+  background-color: #C7EAFC !important;
   cursor: pointer;
 }

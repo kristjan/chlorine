@@ -27,17 +27,13 @@
 }
 
 .fresh {
-  background-color: #0D0;
   border: 1px solid #0A0;
 }
 .stale {
-  background-color: #DD0;
   border: 1px solid #AA0;
 }
 .old {
-  background-color: #D00;
   border: 1px solid #A00;
-  color: #EEE;
 }
 
 #info .actions {

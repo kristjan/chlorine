@@ -3,5 +3,12 @@
 <%= javascript_include_tag 'recruits/index' %>
 
 <% @page_title = "Recruits" %>
-  <%= render :partial => 'list', :locals => {:recruits => @recruits} %>
-</table>
+<div id="pipeline" class="clearfix">
+  <% [:new, :in_process, :hired, :rejected, :declined].each do |stage|%>
+    <div class="stage <%= stage %>">
+      <h2><%= stage.to_s.titleize %></h2>
+      <h1><%= (@recruits_by_stage[stage] || []).size %></h1>
+    </div>
+  <% end %>
+</div>
+<%= render :partial => 'list', :locals => {:recruits => @recruits} %>
