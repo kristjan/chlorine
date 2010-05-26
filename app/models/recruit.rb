@@ -41,7 +41,8 @@ class Recruit < ActiveRecord::Base
 
   def important?
     current_activity.pipeline_stage == :new ||
-      current_activity.stale?
+    (current_activity.pipeline_stage == :in_process &&
+     current_activity.stale?)
   end
 
   def promote!
