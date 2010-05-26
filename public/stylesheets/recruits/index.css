@@ -42,3 +42,13 @@
 .tablecontrols a {
   color: #00F;
 }
+
+#recruits td.priority {
+  background-color: #FFF;
+  width: 15px;
+}
+#recruits td.important {
+  background-image: url('/images/notice.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+}

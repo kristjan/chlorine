@@ -156,6 +156,10 @@ class Activity < ActiveRecord::Base
     !scheduled_time.nil?
   end
 
+  def stale?
+    updated_at < 5.days.ago
+  end
+
   def needs_scheduling?
     SCHEDULABLE_ACTIVITIES.include?(self.class)
   end

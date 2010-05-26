@@ -1,7 +1,8 @@
 <% if recruits.any? %>
-  <table class="recruits tablesorter">
+  <table id="recruits" class="recruits tablesorter">
     <thead>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Stage</th>
         <th>Assigned To</th>
@@ -11,6 +12,11 @@
     </thead>
     <% recruits.each do |recruit| %>
       <tr class="<%= recruit.current_activity.pipeline_stage %>">
+        <td class="priority <%= 'important' if recruit.important? %>">
+          <span class="sort_data">
+            <%= recruit.important? ? 0 : 1 %>
+          </span>
+        </td>
         <td><%= link_to h(recruit.name), recruit%></td>
         <td>
           <span class="sort_data">

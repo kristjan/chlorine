@@ -39,6 +39,11 @@ class Recruit < ActiveRecord::Base
     by_state
   end
 
+  def important?
+    current_activity.pipeline_stage == :new ||
+      current_activity.stale?
+  end
+
   def promote!
     next_activity.create!(:recruit => self)
   end
