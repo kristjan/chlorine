@@ -16,4 +16,16 @@ function initRecruitsIndex() {
 
 }
 
+function showAllRows() {
+  $('tr.rejected').show();
+  $('.tablecontrols .showall').hide();
+  $('.tablecontrols .showinprocess').show();
+}
+
+function showInProcessRows() {
+  $('tr.rejected').hide();
+  $('.tablecontrols .showinprocess').hide();
+  $('.tablecontrols .showall').show();
+}
+
 $(document).ready(initRecruitsIndex);

@@ -33,3 +33,12 @@
 #pipeline .declined {
   background-color: #CCF;
 }
+
+.tablecontrols {
+  color: #666;
+  font-size: 12px;
+  text-align: right;
+}
+.tablecontrols a {
+  color: #00F;
+}

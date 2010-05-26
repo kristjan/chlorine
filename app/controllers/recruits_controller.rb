@@ -10,6 +10,12 @@ class RecruitsController < ApplicationController
       r.current_activity.pipeline_stage
     end
 
+    unless params[:show] == 'all'
+      @recruits.reject! do |r|
+        ![:new, :in_process].include?(r.current_activity.pipeline_stage)
+      end
+    end
+
     respond_to do |format|
       format.html
       format.xml  { render :xml => @recruits }

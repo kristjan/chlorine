@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <% recruits.each do |recruit| %>
-      <tr>
+      <tr class="<%= recruit.current_activity.pipeline_stage %>">
         <td><%= link_to h(recruit.name), recruit%></td>
         <td>
           <span class="sort_data">

@@ -11,4 +11,11 @@
     </div>
   <% end %>
 </div>
+<div class="tablecontrols">
+  <% if params[:show] == 'all' %>
+    (Showing all) <%= link_to "Show only in-process", recruits_url %>
+  <% else %>
+    (Only showing new & in-process) <%= link_to "Show all", recruits_url(:show => :all) %>
+  <% end %>
+</div>
 <%= render :partial => 'list', :locals => {:recruits => @recruits} %>
