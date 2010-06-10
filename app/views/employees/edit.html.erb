@@ -16,6 +16,12 @@
     <%= f.text_field :facebook_uid %>
   </p>
   <p>
+    <%= f.label :recruit_id %>
+    <%= f.select :recruit_id,
+          recruits_for_select(Recruit.to_employ, @employee),
+          :include_blank => true %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

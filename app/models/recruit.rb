@@ -41,6 +41,12 @@ class Recruit < ActiveRecord::Base
     by_state
   end
 
+  def self.to_employ
+    hired = Activity::Hired.all.map(&:recruit_id)
+    employed = Employee.all.map(&:recruit_id)
+    Recruit.find(hired - employed).sort_by(&:name)
+  end
+
   def important?
     current_activity.pipeline_stage == :new ||
     (current_activity.pipeline_stage == :in_process &&
