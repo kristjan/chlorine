@@ -3,6 +3,8 @@ class Recruit < ActiveRecord::Base
   has_many :activities, :order => 'created_at', :dependent => :destroy
   has_many :documents, :dependent => :destroy
 
+  has_one :employee
+
   validates_presence_of :name
 
   POSITIONS = [

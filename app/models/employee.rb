@@ -4,6 +4,8 @@ class Employee < ActiveRecord::Base
   has_many :employee_activities
   has_many :activities, :through => :employee_activities
 
+  belongs_to :recruit
+
   def self.name_id_pairs
     Employee.all.map{|e| [e.name, e.id]}
   end

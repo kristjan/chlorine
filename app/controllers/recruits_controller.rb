@@ -5,7 +5,7 @@ class RecruitsController < ApplicationController
     :only => [:promote, :reject, :decline]
 
   def index
-    @recruits = Recruit.all
+    @recruits = Recruit.all - [current_user.recruit]
     @recruits_by_stage = @recruits.group_by do |r|
       r.current_activity.pipeline_stage
     end
@@ -23,6 +23,7 @@ class RecruitsController < ApplicationController
   end
 
   def show
+    redirect_to root_path and return if current_user.recruit == @recruit
     respond_to do |format|
       format.html
       format.xml  { render :xml => @recruit }
