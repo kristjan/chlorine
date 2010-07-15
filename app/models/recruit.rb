@@ -3,6 +3,8 @@ class Recruit < ActiveRecord::Base
   has_many :activities, :order => 'created_at', :dependent => :destroy
   has_many :documents, :dependent => :destroy
 
+  has_one :employee
+
   validates_presence_of :name
 
   POSITIONS = [
@@ -39,6 +41,51 @@ class Recruit < ActiveRecord::Base
     by_state
   end
 
+  def self.to_employ
+    hired = Activity::Hired.all.map(&:recruit_id)
+    employed = Employee.all.map(&:recruit_id)
+    Recruit.find(hired - employed).sort_by(&:name)
+  end
+
+  def important?
+    current_activity.pipeline_stage == :new ||
+    (current_activity.pipeline_stage == :in_process &&
+     current_activity.stale?)
+  end
+
+  def promote!
+    next_activity.create!(:recruit => self)
+  end
+  def hired?
+    Activity::Hired.exists?(:recruit_id => self.id)
+  end
+
+  def demote!
+    current_activity.destroy
+    refresh_current_activity
+    current_activity.update_attributes(:completed_at => nil)
+  end
+
+  def reject!
+    return if rejected?
+    Activity::Rejected.create!(
+      :recruit => self,
+      :completed_at => Time.now)
+  end
+  def rejected?
+    Activity::Rejected.exists?(:recruit_id => self.id)
+  end
+
+  def decline!
+    return if declined?
+    Activity::Declined.create!(
+      :recruit => self,
+      :completed_at => Time.now)
+  end
+  def declined?
+    Activity::Declined.exists?(:recruit_id => self.id)
+  end
+
   def activity(name)
     activities.detect{|a| a.underscored_name == "activity_#{name.to_s}"}
   end
@@ -60,7 +107,10 @@ class Recruit < ActiveRecord::Base
   end
 
   def current_activity
-    @current_activity ||= activities.last(:order => :created_at)
+    @current_activity ||= activities.last
+  end
+  def refresh_current_activity
+    @current_activity = activities.last
   end
 
   def next_activity

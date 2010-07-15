@@ -16,5 +16,10 @@
     <%= f.label :facebook_uid, "Facebook ID" %>
     <%= f.text_field :facebook_uid, :tabindex => 3 %>
   </p>
+  <p>
+    <%= f.label :recruit_id %>
+    <%= f.select :recruit_id, recruits_for_select(Recruit.to_employ),
+          :include_blank => true %>
+  </p>
 <% end %>
 <%= link_to 'Nevermind', employees_path %>

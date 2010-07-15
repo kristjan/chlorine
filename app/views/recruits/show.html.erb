@@ -7,13 +7,41 @@
 <%= javascript_include_tag 'recruits/schedule' %>
 
 <div id="info" class="clearfix">
-  <h2><%= @recruit.name %></h2>
-  &mdash; <%= auto_link(@recruit.email) %>
-  &mdash; <%= phone(@recruit.phone) %>
-  &mdash; Last Updated:
-  <%- updated_at = @recruit.activities.map(&:updated_at).max -%>
-  <%= format_time(updated_at) %>
-  <span class="freshness <%= days_ago_class(updated_at) %>"><%= pluralize(days_ago(updated_at), 'day') %> ago</span>
+  <div>
+    <h2><%= @recruit.name %></h2>
+    Email: <%= auto_link(@recruit.email) %><br />
+    Phone: <%= phone(@recruit.phone) %>
+  </div>
+  <div class="freshness">
+    Last Activity:
+    <%- updated_at = @recruit.activities.map(&:updated_at).max -%>
+    <%= format_time(updated_at) %>
+    <% unless @recruit.current_activity.terminal? %>
+      <div class="<%= days_ago_class(updated_at) %>">
+        <%= pluralize(days_ago(updated_at), 'day') %> ago
+      </div>
+    <% end %>
+  </div>
+  <div class="actions">
+    <% if @recruit.hired? %>
+      <div class="button hire">
+        <%= @recruit.first_name %> was hired!
+      </div>
+    <% elsif @recruit.rejected? %>
+      <div class="button reject">
+        <%= @recruit.first_name %> was rejected.
+      </div>
+    <% elsif @recruit.declined? %>
+      <div class="button decline">
+        <%= @recruit.first_name %> declined.
+      </div>
+    <% else %>
+      <%= link_to "Reject #{@recruit.first_name}", reject_recruit_url(@recruit),
+            :method => :put, :class => "button reject" %>
+      <%= link_to "#{@recruit.first_name} declined", decline_recruit_url(@recruit),
+            :method => :put, :class => "button decline" %>
+    <% end %>
+  </div>
 </div>
 
 <%= render :partial => 'activity_tabs' %>

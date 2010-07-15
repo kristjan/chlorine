@@ -6,8 +6,10 @@
   <%= render :partial => "recruits/activity_tabs/header",
              :locals => {:activity => activity} %>
   <div class="tab_content">
-    <%= render :partial => "schedule_activity",
-               :locals => {:activity => activity} %>
+    <% unless local_assigns[:no_schedule] %>
+      <%= render :partial => "schedule_activity",
+                 :locals => {:activity => activity} %>
+    <% end%>
     <%= render :partial => "recruits/feedback/feedback",
                :locals => {:activity => activity} %>
   </div>

@@ -1,6 +1,21 @@
+<%= stylesheet_link_tag 'tablesorter' %>
+<%= javascript_include_tag 'plugins/jquery.tablesorter' %>
+<%= javascript_include_tag 'recruits/index' %>
+
 <% @page_title = "Recruits" %>
-  <% [:confused, :scheduling, :decision, :upcoming].each do |state| %>
-    <%= render :partial => 'list',
-               :locals => {:state => state, :recruits => @recruits[state]} %>
+<div id="pipeline" class="clearfix">
+  <% [:new, :in_process, :hired, :rejected, :declined].each do |stage|%>
+    <div class="stage <%= stage %>">
+      <h2><%= stage.to_s.titleize %></h2>
+      <h1><%= (@recruits_by_stage[stage] || []).size %></h1>
+    </div>
   <% end %>
-</table>
+</div>
+<div class="tablecontrols">
+  <% if params[:show] == 'all' %>
+    (Showing all) <%= link_to "Show only in-process", recruits_url %>
+  <% else %>
+    (Only showing new & in-process) <%= link_to "Show all", recruits_url(:show => :all) %>
+  <% end %>
+</div>
+<%= render :partial => 'list', :locals => {:recruits => @recruits} %>

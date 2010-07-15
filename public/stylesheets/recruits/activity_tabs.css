@@ -48,12 +48,21 @@
   padding: 10px 20px;
 }
 
-.new_tab_content {
+.new_tab_content, .offer_tab_content {
   background-color: #C7EAFC;
   margin: 0px;
   padding: 10px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+
+.offer_tab_content {
+  text-align: center;
+}
+
+.offer_tab_content .button {
+  margin: 10px auto;
+  width: 300px;
 }
 
 #activity_tabs .ui-tabs-panel {

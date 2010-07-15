@@ -13,6 +13,14 @@
   <%= link_to_facebook @employee %>
 </p>
 
+<p>
+  <b>Recruit:</b>
+  <% if @employee.recruit %>
+    <%= link_to @employee.recruit.name, recruit_url(@employee.recruit) %>
+  <% else %>
+    <%= link_to "Link Recruit", edit_employee_path(@employee) %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back to Employees', employees_path %>

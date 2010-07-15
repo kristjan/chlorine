@@ -5,7 +5,16 @@ class RecruitsController < ApplicationController
     :only => [:promote, :reject, :decline]
 
   def index
-    @recruits = Recruit.by_action_needed
+    @recruits = Recruit.all - [current_user.recruit]
+    @recruits_by_stage = @recruits.group_by do |r|
+      r.current_activity.pipeline_stage
+    end
+
+    unless params[:show] == 'all'
+      @recruits.reject! do |r|
+        ![:new, :in_process].include?(r.current_activity.pipeline_stage)
+      end
+    end
 
     respond_to do |format|
       format.html
@@ -14,6 +23,7 @@ class RecruitsController < ApplicationController
   end
 
   def show
+    redirect_to root_path and return if current_user.recruit == @recruit
     respond_to do |format|
       format.html
       format.xml  { render :xml => @recruit }
@@ -73,7 +83,7 @@ class RecruitsController < ApplicationController
   end
 
   def promote
-    @recruit.next_activity.create!(:recruit => @recruit)
+    @recruit.promote!
     flash[:success] = "#{@recruit.name} has leveled up!"
     redirect_to @recruit
   end
@@ -82,24 +92,20 @@ class RecruitsController < ApplicationController
     if @recruit.current_activity.feedbacks.any?
       flash[:failure] = "There's already feedback"
     else
-      @recruit.current_activity.destroy
+      @recruit.demote!
       flash[:success] = "#{@recruit.name} got kicked down a notch!"
     end
     redirect_to @recruit
   end
 
   def reject
-    Activity::Rejected.create!(
-      :recruit => @recruit,
-      :completed_at => Time.now)
+    @recruit.reject!
     flash[:failure] = "#{@recruit.name}'s spoon was just too big."
     redirect_to @recruit
   end
 
   def decline
-    Activity::Declined.create!(
-      :recruit => @recruit,
-      :completed_at => Time.now)
+    @recruit.decline!
     flash[:failure] = "It was probably something you said."
     redirect_to @recruit
   end

@@ -1,20 +1,54 @@
-table {
+#pipeline {
   margin-bottom: 25px;
-  width: 100%;
 }
 
-table th {
-  text-align: left;
-  font-variant: small-caps;
-}
-
-table th.state {
-  background-color: #8DD9F8;
-  height: 20px;
+#pipeline .stage {
+  border: 1px solid #CCC;
+  float: left;
+  margin: 10px;
+  padding: 20px;
   text-align: center;
+  width: 120px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
-table td {
-  padding: 5px 0px;
-  width: 150px;
+#pipeline h1 {
+  font-size: 50px;
+  margin: 5px;
+}
+
+#pipeline .new {
+  background-color: #FFC;
+}
+#pipeline .in_process {
+  background-color: #DFA;
+}
+#pipeline .hired {
+  background-color: #9F9;
+}
+#pipeline .rejected {
+  background-color: #FCC;
+}
+#pipeline .declined {
+  background-color: #CCF;
+}
+
+.tablecontrols {
+  color: #666;
+  font-size: 12px;
+  text-align: right;
+}
+.tablecontrols a {
+  color: #00F;
+}
+
+#recruits td.priority {
+  background-color: #FFF;
+  width: 15px;
+}
+#recruits td.important {
+  background-image: url('/images/notice.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
 }

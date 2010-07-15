@@ -3,31 +3,59 @@
 }
 
 #info h2 {
-  display: inline;
-  font-size: 20px;
+  font-size: 30px;
   font-variant: small-caps;
 }
 
-#info p {
+#info > div {
+  float: left;
   font-weight: normal;
-  margin: 10px 0px;
+  width: 300px;
 }
 
 #info .freshness {
-  padding: 3px 5px;
+  text-align: center;
+}
+
+#info .freshness div {
+  margin: 10px auto;
+  padding: 5px;
+  text-align: center;
+  width: 150px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
 
-#info .fresh {
-  background-color: #0D0;
+.fresh {
   border: 1px solid #0A0;
 }
-#info .stale {
-  background-color: #DD0;
+.stale {
   border: 1px solid #AA0;
 }
-#info .old {
-  background-color: #D00;
+.old {
   border: 1px solid #A00;
+}
+
+#info .actions {
+  float: right;
+  width: auto;
+}
+
+.hire {
+  background-color: #4D4;
+}
+a.hire:hover {
+  background-color: #0D0;
+}
+.reject {
+  background-color: #D44;
+}
+a.reject:hover {
+  background-color: #D22;
+}
+.decline {
+  background-color: #88D;
+}
+a.decline:hover {
+  background-color: #66D;
 }

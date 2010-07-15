@@ -12,8 +12,17 @@ module RecruitsHelper
   end
 
   def employees_assigned_to(action)
-    names = action.employees.map(&:name).sort.join(',')
+    names = action.employees.map(&:name).sort.
+      map{|name| name == current_user.name ? content_tag(:strong, name) : name}.
+      join(',')
     names.blank? ? '-' : names
+  end
+
+  def assigned_to_sort_data(activity)
+    names = employees_assigned_to(activity)
+    return 0 if names.include?(current_user.name)
+    return 2 if names == '-'
+    return 1
   end
 
   def employees_for_select_options(employees=nil)

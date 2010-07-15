@@ -38,6 +38,7 @@ class Activity < ActiveRecord::Base
     Hired,
   ]
 
+  ACTIVITIES = ACTIVITY_ORDER
   TERMINAL_ACTIVITIES    = [Hired, Rejected, Declined]
   NONTERMINAL_ACTIVITIES = ACTIVITY_ORDER - TERMINAL_ACTIVITIES
   SCHEDULABLE_ACTIVITIES = [PhoneIntro, PhoneScreen, WhiteboardSession,
@@ -119,6 +120,17 @@ class Activity < ActiveRecord::Base
     @employee_ids_to_save && @employee_ids_to_save.sort != employee_ids.sort
   end
 
+  def pipeline_stage
+    case self
+      when New: :new
+      when Hired: :hired
+      when Rejected: :rejected
+      when Declined: :declined
+      else
+        :in_process
+    end
+  end
+
   def reassign_employees
     Rails.logger.info "Saving employees"
     to_create = @employee_ids_to_save - employee_ids
@@ -142,6 +154,10 @@ class Activity < ActiveRecord::Base
 
   def scheduled?
     !scheduled_time.nil?
+  end
+
+  def stale?
+    updated_at < 5.days.ago
   end
 
   def needs_scheduling?

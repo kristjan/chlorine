@@ -1,1 +1,5 @@
-This is the reference_check tab
+<%= render :partial => 'recruits/activity_tabs/feedback_tab',
+           :locals => {
+             :activity => @recruit.activity(:reference_check),
+             :no_schedule => true
+           } %>

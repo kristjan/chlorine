@@ -1,5 +1,6 @@
+<%- activity = @recruit.activity(:new) -%>
 <%= render :partial => "recruits/activity_tabs/header",
-           :locals => {:activity => @recruit.activity(:new)} %>
+           :locals => {:activity => activity} %>
 <div class="tab_content">
   <div class="new_tab_content">
     <% unless @recruit.position.blank? %>
@@ -21,5 +22,9 @@
       </p>
     <% end %>
     <%= render :partial => 'files' %>
+  </div>
+  <div class="tab_content">
+    <%= render :partial => "recruits/feedback/feedback",
+               :locals => {:activity => activity} %>
   </div>
 </div>
