@@ -8,8 +8,10 @@ class Recruit < ActiveRecord::Base
   validates_presence_of :name
 
   POSITIONS = [
-    "Kode Koala",
-    "Ops Ostrich"
+    "Software Engineer",
+    "Operations Engineer",
+    "VP Engineering",
+    "Designer"
   ]
 
   def self.by_action_needed
