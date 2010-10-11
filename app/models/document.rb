@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  has_attachment
+  has_attachment :max_size => 10.megabytes
   belongs_to :recruit
 
   validates_presence_of :filename, :content_type
