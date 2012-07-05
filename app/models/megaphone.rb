@@ -21,7 +21,7 @@ class Megaphone < ActionMailer::Base
 
   def test(sent_at = Time.now)
     subject    'Megaphone#test'
-    recipients 'kristjan@gmail.com'
+    recipients ''
     from       'Chlorine'
     sent_on    sent_at
 
